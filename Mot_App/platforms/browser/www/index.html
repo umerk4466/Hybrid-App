@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- basic phonegap imports -->
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+     <!--<meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+
+    <!-- Add jquery mobile -->
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <!-- Add bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <!-- Add custom css -->
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    
+</head>
+
+<body>
+
+<!-- ------------------------------------------------------ -->
+<!-- Page1(Login) start-->
+<div data-role="page" id="page1" class="h-100 overflow-hidden">
+  <!-- header start -->
+  <div data-role="header">
+     <div data-role="navbar">
+            <ul>
+                <li><a href="#page1" data-icon="user" data-theme="b">Login</a></li>
+                <li><a href="#page2" data-icon="plus">Sign up</a></li>
+            </ul>
+        </div><!-- /navbar -->
+  </div>
+  <!-- header end -->
+
+  <!-- page content start -->
+  <div data-role="main" class="ui-content px-0" >
+    
+        <div class="container text-center">
+            <div class="row mt-3">
+                <div class="col">
+                    <img src="img/app_logo.png" width="75%" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <div class="row mt-4">
+              <div class="col">
+                <h6 class="mb-0">Welcome to the MotApp </h6>
+                <p class="m-0">login to your account below</p>
+              </div>
+            </div>
+
+            <div class="row mt-2 p-3">
+                <div class="col">
+                    <label class="text-left text-capitalize">username:</label>
+                    <input type="text" data-clear-btn="true" name="username" placeholder="Enter Username" />
+
+                    <label class="text-left text-capitalize mt-2">password:</label>
+                    <input type="password" data-clear-btn="true" name="password" placeholder="Enter Password" />
+
+                    <button class="ui-btn ui-corner-all ui-mini mt-4">Login</button>
+                </div>
+            </div>
+
+        </div>
+  </div> 
+  <!-- page content end -->
+
+  <!-- footer start -->
+  <div class="fixed-bottom text-center" data-role="footer">
+          <p class="m-2 text-capitalize">look other mot apps<span> <a href="http://www.google.com/search?q=mot+apps+uk+android" target="_blank">Click me</a></span></p>
+  </div>
+  <!-- footer end -->
+
+</div> 
+<!-- Page1(Login) end-->
+
+<!-- ------------------------------------------------------ -->
+
+<!-- Page2(registration/sign-up) start-->
+<div data-role="page" id="page2" class="h-100 overflow-hidden">
+  <!-- header start -->
+  <div data-role="header">
+    <div data-role="navbar">
+            <ul>
+                <li><a href="#page1" data-icon="user">Login</a></li>
+                <li><a href="#page2" data-icon="plus" data-theme="b">Sign up</a></li>
+            </ul>
+        </div><!-- /navbar -->
+  </div>
+  <!-- header end -->
+
+  <!-- page content start -->
+  <div data-role="main" class="ui-content px-0" >
+        <div class="container text-center">
+            <div class="row mt-3">
+                <div class="col">
+                    <img src="img/app_logo.png" width="75%" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <div class="row mt-4">
+              <div class="col">
+                <h6 class="mb-0">Welcome to the MotApp </h6>
+                <p class="m-0">Sign-up for new account below</p>
+              </div>
+            </div>
+
+            <div class="row mt-2 p-3">
+                <div class="col">
+                    <label class="text-left text-capitalize">Vehicle Number:</label>
+                    <input type="text" data-clear-btn="true" name="reg_number" placeholder="Your Vehicle Number" />
+
+                    <label class="text-left text-capitalize mt-2">username:</label>
+                    <input type="text" data-clear-btn="true" name="signup_username" placeholder="New Username" />
+
+                    <label class="text-left text-capitalize mt-2">password:</label>
+                    <input type="password" data-clear-btn="true" name="signup_password" placeholder="New Password" />
+
+                    <button class="ui-btn ui-corner-all ui-mini mt-4">Sign Up Now</button>
+                </div>
+            </div>
+
+        </div>
+  </div> 
+  <!-- page content end -->
+
+  <!-- footer start -->
+  <div class="fixed-bottom text-center" data-role="footer">
+          <p class="m-2 text-capitalize">look other mot apps<span> <a href="http://www.google.com/search?q=mot+apps+uk+android" target="_blank">Click me</a></span></p>
+  </div>
+  <!-- footer end -->
+
+</div> 
+<!-- Page2(registration/sign-up) end-->
+
+<!-- ------------------------------------------------------ -->
+
+    <!-- default Setting and imports of cordova-->
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript">
+        app.initialize();
+    </script>
+</body>
+
+</html>
