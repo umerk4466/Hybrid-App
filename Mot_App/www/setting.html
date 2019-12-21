@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- basic phonegap imports -->
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover"
+    />
+    <!--<meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+    <!-- Add jquery mobile -->
+    <link
+      rel="stylesheet"
+      href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"
+    />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <!-- Add bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Add custom css -->
+    <!-- <link rel="stylesheet" type="text/css" href="css/setting.css" /> -->
+  </head>
+
+  <body>
+    <!-- ------------------------------------------------------ -->
+
+    <!-- setting(setting) start-->
+    <div data-role="page" id="setting" class="h-100">
+      <!-- menu panel page1 start -->
+      <div
+        data-role="panel"
+        id="setting_menu"
+        data-position="left"
+        data-display="overlay"
+      >
+        <!-- menu panel content goes here -->
+        <div class="ui-panel-inner">
+          <ul data-role="listview">
+            <li
+              data-role="list-divider"
+              class="py-1 text-center"
+              style="font-size: 20px;"
+            >
+              Menu
+            </li>
+            <li>
+              <a href="home.html" data-rel="close" style="font-size: 20px;"
+                ><img src="img/menubar/home.png" class="ui-li-icon" />Home</a
+              >
+            </li>
+
+            <li data-role="list-divider" class="py-0" style="font-size: 17px;">
+              CAR
+            </li>
+
+            <li>
+              <a
+                href="my_vehicle.html"
+                data-rel="close"
+                style="font-size: 20px;"
+                ><img src="img/menubar/my_car.png" class="ui-li-icon" />My
+                Vehicle</a
+              >
+            </li>
+            <li>
+              <a
+                href="add_vehicle.html"
+                data-rel="close"
+                style="font-size: 20px;"
+                ><img src="img/menubar/add_car.png" class="ui-li-icon" />Add
+                Vehicle</a
+              >
+            </li>
+
+            <li data-role="list-divider" class="py-0" style="font-size: 17px;">
+              OTHER
+            </li>
+
+            <li data-theme="b">
+              <a href="#setting" data-rel="close" style="font-size: 20px;"
+                ><img
+                  src="img/menubar/setting.png"
+                  class="ui-li-icon"
+                />Setting</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- /menu panel page1 -->
+
+      <!-- header start -->
+      <div data-role="navbar" data-iconpos="left">
+        <ul>
+          <li>
+            <a
+              href="#setting_menu"
+              data-icon="bars"
+              data-theme="b"
+              style="font-size: 20px;"
+              >Setting</a
+            >
+          </li>
+        </ul>
+      </div>
+      <!-- /navbar -->
+      <!-- header end -->
+
+      <!-- page content start -->
+      <div data-role="main" class="ui-content px-0">
+        <div class="container text-center">
+          <div class="row mt-3">
+            <div class="col"></div>
+          </div>
+
+          <div class="row mt-4">
+            <div class="col">
+              <div id="a">
+                ksjk
+                <div></div>
+              </div>
+
+              <div class="row mt-2 p-3">
+                <div class="col"></div>
+              </div>
+            </div>
+          </div>
+          <!-- page content end -->
+
+          <!-- footer start -->
+          <!-- <div class="fixed-bottom text-center" data-role="footer"></div> -->
+          <!-- footer end -->
+        </div>
+      </div>
+    </div>
+    <!-- setting(setting) end-->
+
+    <!-- ------------------------------------------------------ -->
+
+    <!-- import custom js -->
+    <script type="text/javascript" src="cordova.js"></script>
+  </body>
+</html>
