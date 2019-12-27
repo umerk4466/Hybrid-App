@@ -6,7 +6,10 @@
     <meta name="format-detection" content="telephone=no" />
     <meta name="msapplication-tap-highlight" content="no" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover"
+    />
     <!--<meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" /> -->
 
     <!-- Add jquery mobile -->
@@ -83,28 +86,27 @@
 
           <div class="row mt-2 p-3">
             <div class="col">
-              <label class="text-left text-capitalize">username:</label>
-              <input
-                type="text"
-                data-clear-btn="true"
-                name="username"
-                placeholder="Enter Username"
-              />
+              <form id="login_form">
+                <label class="text-left text-capitalize">username:</label>
+                <input
+                  type="text"
+                  data-clear-btn="true"
+                  name="username"
+                  placeholder="Enter Username"
+                />
 
-              <label class="text-left text-capitalize mt-2">password:</label>
-              <input
-                type="password"
-                data-clear-btn="true"
-                name="password"
-                placeholder="Enter Password"
-              />
+                <label class="text-left text-capitalize mt-2">password:</label>
+                <input
+                  type="password"
+                  data-clear-btn="true"
+                  name="password"
+                  placeholder="Enter Password"
+                />
 
-              <button
-                class="ui-btn ui-corner-all ui-mini mt-4"
-                onclick="login_check()"
-              >
-                Login
-              </button>
+                <button type="submit" class="ui-btn ui-corner-all ui-mini mt-4">
+                  Login
+                </button>
+              </form>
             </div>
           </div>
         </div>
@@ -168,33 +170,35 @@
 
           <div class="row mt-2 p-3">
             <div class="col">
-              <label class="text-left text-capitalize">Vehicle Number:</label>
-              <input
-                type="text"
-                data-clear-btn="true"
-                name="reg_number"
-                placeholder="Your Vehicle Number"
-              />
+              <form id="signup_form">
+                <label class="text-left text-capitalize" id="name">Vehicle Number:</label>
+                <input
+                  type="text"
+                  data-clear-btn="true"
+                  name="reg_number"
+                  placeholder="Your Vehicle Number"
+                />
 
-              <label class="text-left text-capitalize mt-2">username:</label>
-              <input
-                type="text"
-                data-clear-btn="true"
-                name="signup_username"
-                placeholder="New Username"
-              />
+                <label class="text-left text-capitalize mt-2">username:</label>
+                <input
+                  type="text"
+                  data-clear-btn="true"
+                  name="signup_username"
+                  placeholder="New Username"
+                />
 
-              <label class="text-left text-capitalize mt-2">password:</label>
-              <input
-                type="password"
-                data-clear-btn="true"
-                name="signup_password"
-                placeholder="New Password"
-              />
+                <label class="text-left text-capitalize mt-2">password:</label>
+                <input
+                  type="password"
+                  data-clear-btn="true"
+                  name="signup_password"
+                  placeholder="New Password"
+                />
 
-              <button class="ui-btn ui-corner-all ui-mini mt-4">
-                Sign Up Now
-              </button>
+                <button type="submit" class="ui-btn ui-corner-all ui-mini mt-4">
+                  Sign Up Now
+                </button>
+              </form>
             </div>
           </div>
         </div>
