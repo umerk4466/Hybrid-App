@@ -27,9 +27,10 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
+    <!-- NOT SLIM -->
     <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
       crossorigin="anonymous"
     ></script>
     <script
@@ -56,7 +57,11 @@
         <div data-role="navbar">
           <ul>
             <li><a href="#page1" data-icon="user" data-theme="b">Login</a></li>
-            <li><a href="#page2" data-icon="plus">Sign up</a></li>
+            <li>
+              <a href="#page2" data-icon="plus" data-transition="flip"
+                >Sign up</a
+              >
+            </li>
           </ul>
         </div>
         <!-- /navbar -->
@@ -86,27 +91,35 @@
 
           <div class="row mt-2 p-3">
             <div class="col">
-              <form id="login_form">
-                <label class="text-left text-capitalize">username:</label>
-                <input
-                  type="text"
-                  data-clear-btn="true"
-                  name="username"
-                  placeholder="Enter Username"
-                />
+              <label class="text-left text-capitalize m-1">username:</label>
+              <input
+                autocapitalize="none"
+                id="login-username-inp"
+                class="form-control form-control-sm"
+                type="text"
+                data-clear-btn="true"
+                placeholder="Enter Username"
+              />
 
-                <label class="text-left text-capitalize mt-2">password:</label>
-                <input
-                  type="password"
-                  data-clear-btn="true"
-                  name="password"
-                  placeholder="Enter Password"
-                />
+              <label class="text-left text-capitalize mt-2 m-1"
+                >password:</label
+              >
+              <input
+                autocapitalize="none"
+                id="login-password-inp"
+                class="form-control form-control-sm"
+                type="password"
+                data-clear-btn="true"
+                placeholder="Enter Password"
+              />
 
-                <button type="submit" class="ui-btn ui-corner-all ui-mini mt-4">
-                  Login
-                </button>
-              </form>
+              <button
+                id="login-btn"
+                type="submit"
+                class="ui-btn ui-corner-all ui-icon-check ui-btn-icon-left mt-4 bg-dark text-white"
+              >
+                Login
+              </button>
             </div>
           </div>
         </div>
@@ -137,7 +150,9 @@
       <div data-role="header">
         <div data-role="navbar">
           <ul>
-            <li><a href="#page1" data-icon="user">Login</a></li>
+            <li>
+              <a href="#page1" data-icon="user" data-transition="flip">Login</a>
+            </li>
             <li>
               <a href="#page2" data-icon="plus" data-theme="b">Sign up</a>
             </li>
@@ -170,35 +185,49 @@
 
           <div class="row mt-2 p-3">
             <div class="col">
-              <form id="signup_form">
-                <label class="text-left text-capitalize" id="name">Vehicle Number:</label>
-                <input
-                  type="text"
-                  data-clear-btn="true"
-                  name="reg_number"
-                  placeholder="Your Vehicle Number"
-                />
+              <label class="text-left text-capitalize m-1"
+                >Vehicle Number:</label
+              >
+              <input
+                id="signup-vehicle-no"
+                autocapitalize="none"
+                type="text"
+                data-clear-btn="true"
+                class="form-control form-control-sm"
+                placeholder="Your Vehicle Number"
+              />
 
-                <label class="text-left text-capitalize mt-2">username:</label>
-                <input
-                  type="text"
-                  data-clear-btn="true"
-                  name="signup_username"
-                  placeholder="New Username"
-                />
+              <label class="text-left text-capitalize mt-2 m-1"
+                >username:</label
+              >
+              <input
+                id="signup-username-inp"
+                type="text"
+                autocapitalize="none"
+                data-clear-btn="true"
+                class="form-control form-control-sm"
+                placeholder="New Username"
+              />
 
-                <label class="text-left text-capitalize mt-2">password:</label>
-                <input
-                  type="password"
-                  data-clear-btn="true"
-                  name="signup_password"
-                  placeholder="New Password"
-                />
+              <label class="text-left text-capitalize mt-2 m-1"
+                >password:</label
+              >
+              <input
+                id="signup-password-inp"
+                type="password"
+                autocapitalize="none"
+                data-clear-btn="true"
+                class="form-control form-control-sm"
+                placeholder="New Password"
+              />
 
-                <button type="submit" class="ui-btn ui-corner-all ui-mini mt-4">
-                  Sign Up Now
-                </button>
-              </form>
+              <button
+                id="signup-btn"
+                type="submit"
+                class="ui-btn ui-corner-all ui-icon-check ui-btn-icon-left mt-4 bg-dark text-white"
+              >
+                Sign Up Now
+              </button>
             </div>
           </div>
         </div>
