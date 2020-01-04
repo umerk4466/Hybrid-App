@@ -1,0 +1,4 @@
+- add save login info checkbox on login page.
+- save user login information to local storage *
+- delete the local storage data on logout.
+- on homepage iterate all the info of the user reminder etc with design.

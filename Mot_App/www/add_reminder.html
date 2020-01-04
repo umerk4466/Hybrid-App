@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- basic phonegap imports -->
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover"
+    />
+    <!--<meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+    <!-- Add jquery mobile -->
+    <link
+      rel="stylesheet"
+      href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"
+    />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <!-- Add bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <!-- NOT SLIM -->
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Add custom css -->
+    <!-- <link rel="stylesheet" type="text/css" href="css/index.css" /> -->
+  </head>
+
+  <body>
+    <!-- ------------------------------------------------------ -->
+
+    <!-- add_reminder(add_reminder page) start-->
+    <div data-role="page" id="add_reminder" class="h-100">
+      <!-- header start -->
+      <div data-role="navbar" data-iconpos="left">
+        <ul>
+          <li>
+            <a
+              href="home.html"
+              data-icon="arrow-l"
+              data-theme="b"
+              style="font-size: 20px;"
+              >Add New Reminder</a
+            >
+          </li>
+        </ul>
+      </div>
+      <!-- /navbar -->
+      <!-- header end -->
+
+      <!-- page content start -->
+      <div data-role="main" class="ui-content p-0">
+        <div class="container">
+          <div class="row">
+            <div class="col px-0">
+              <div class="card p-2 font-weight-bold text-center">
+                Please Fill given fields below
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col px-0">content fields etc</div>
+          </div>
+          <!-- page content end -->
+
+          <!-- footer start -->
+          <div data-position="fixed" data-role="footer">
+            <div data-role="navbar">
+              <ul>
+                <li>
+                  <button
+                    href="#"
+                    class="bg-dark text-white ui-icon-refresh ui-btn-icon-bottom font-weight-normal"
+                  >
+                    edit
+                  </button>
+                </li>
+                <li>
+                  <button
+                    href="#"
+                    class="bg-dark text-white ui-icon-plus ui-btn-icon-bottom font-weight-normal"
+                  >
+                    add
+                  </button>
+                </li>
+              </ul>
+            </div>
+            <!-- /navbar -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- add_reminder(add_reminder page) end-->
+
+    <!-- ------------------------------------------------------ -->
+
+    <!-- import custom js -->
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/add_reminder.js"></script>
+  </body>
+</html>

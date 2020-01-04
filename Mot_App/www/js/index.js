@@ -19,9 +19,11 @@
 var app = {
   // Application Constructor
   initialize: function() {
-    if (!window.navigator.onLine) {
-      window.location = "home.html";
+    while (!window.navigator.onLine) {
+      alert("Check your Internet Connection");
     }
+
+    // https://stackoverflow.com/questions/19143763/phonegap-login-page-how-to-keep-user-information/19144078
     this.bindEvents();
   },
   // Bind Event Listeners
