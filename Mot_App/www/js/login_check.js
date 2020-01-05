@@ -1,4 +1,5 @@
-// jquery function on click
+// set to the default size after keyboard is opened
+$("body").height(window.innerHeight);
 
 // on click on login button, validations etc check
 $("#login-btn").click(function() {

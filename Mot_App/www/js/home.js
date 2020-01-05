@@ -1,3 +1,6 @@
+// set to the default size after keyboard is opened
+$("body").height(window.innerHeight);
+
 // get user data from local storage
 var username = localStorage.getItem("username");
 var password = localStorage.getItem("password");
