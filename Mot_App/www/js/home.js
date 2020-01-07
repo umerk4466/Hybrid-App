@@ -3,12 +3,18 @@ $("body").height(window.innerHeight);
 
 // get user data from local storage
 var username = localStorage.getItem("username");
-var password = localStorage.getItem("password");
 
+// ****************************FUNCTIONS****************************
+// jquery function on click
 // // fucntion on load page, to load all data from the reminder api
 // $(document).ready(function() {
 //   showReminderAjax(username);
 // });
+
+$("#refresh_btn").click(function() {
+  window.location.reload();
+  alert("Reaload Completed");
+});
 
 $("#btn").click(function() {
   showReminderAjax(username);
@@ -55,9 +61,3 @@ function showReminderAjax(username) {
     }
   });
 }
-
-// jquery function on click
-$("#refresh_btn").click(function() {
-  window.location.reload();
-  alert("Reaload Completed");
-});

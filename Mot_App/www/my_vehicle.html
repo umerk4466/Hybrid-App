@@ -41,7 +41,7 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
-    
+
     <!-- get font awsome for the icons -->
     <!-- <link
       rel="stylesheet"
@@ -74,7 +74,11 @@
               Menu
             </li>
             <li>
-              <a href="home.html" data-rel="close" style="font-size: 20px;"
+              <a
+                href="home.html"
+                data-ajax="false"
+                data-rel="close"
+                style="font-size: 20px;"
                 ><img src="img/menubar/home.png" class="ui-li-icon" />Home</a
               >
             </li>
@@ -148,113 +152,75 @@
               </div>
             </div>
           </div>
+          <button id="btn">press</button>
 
-          <!-- card data row start -->
+          <!-- vehicle data row start -->
           <div class="row">
-            <div class="col px-0">
-              <div class="card mt-1">
-                <div class="card-header p-2 text-white bg-dark">
-                  Registration Number : <span>JDJS83</span>
-                </div>
-                <div class="card-body p-0 bg-light border border-dark">
-                  <div class="row m-0">
-                    <div class="col-4 p-0 text-center">
+            <ul id="vehicle_ul_data" data-role="listview" data-inset="true">
+              <!-- <li data-role="list-divider" data-theme="b" class="p-2">
+                Registration No :
+                <span>JDJS83</span>
+                <span class="ui-li-count">Ford</span>
+              </li>
+              <li>
+                <a href="#" class="py-0">
+                  <div class="row p-0">
+                    <div class="col-4 my-auto p-0">
                       <img
                         src="img/mycars/car.jpg"
                         alt="..."
-                        class="img-fluid border border-secondary"
+                        class="img-fluid rounded"
                       />
-                      <a href="..." class="stretched-link"> </a>
                     </div>
 
-                    <div class="col-8 px-1">
-                      <a href="..." class="stretched-link"> </a>
-                      Brand Name : <span class="font-weight-bold">Ford</span>
-                      <br />
-                      Millages : <span class="font-weight-bold">7800km</span
-                      ><br />
-                      Registration Year :
-                      <span class="font-weight-bold">2009</span><br />
+                    <div class="col-8">
+                      <h2 class="font-weight-normal">
+                        Millages : <span>19292km</span>
+                      </h2>
+                      <h2 class="font-weight-normal">
+                        Reg Year : <span>2005</span>
+                      </h2>
+                      <h2 class="font-weight-normal">
+                        Mot Due : <span>2019-12-31</span>
+                      </h2>
                     </div>
                   </div>
-                </div>
-              </div>
-            </div>
+                </a>
+              </li> -->
+            </ul>
           </div>
-          <!-- card data row end -->
-          <!-- card data row start -->
-          <div class="row">
-            <div class="col px-0">
-              <div class="card mt-1">
-                <div class="card-header p-2 text-white bg-dark">
-                  Registration Number : <span>JDJS83</span>
-                </div>
-                <div class="card-body p-0 bg-light border border-dark">
-                  <div class="row m-0">
-                    <div class="col-4 p-0 text-center">
-                      <img
-                        src="img/mycars/car_b.jfif"
-                        alt="..."
-                        class="img-fluid border border-secondary"
-                      />
-                      <a href="..." class="stretched-link"> </a>
-                    </div>
-
-                    <div class="col-8 px-1">
-                      <a href="..." class="stretched-link"> </a>
-                      Brand Name : <span class="font-weight-bold">Ford</span>
-                      <br />
-                      Millages : <span class="font-weight-bold">7800km</span
-                      ><br />
-                      Registration Year :
-                      <span class="font-weight-bold">2009</span><br />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- card data row end -->
-
-          <!-- card data row start -->
-          <div class="row">
-            <div class="col px-0">
-              <div class="card mt-1">
-                <div class="card-header p-2 text-white bg-dark">
-                  Registration Number : <span>JDJS83</span>
-                </div>
-                <div class="card-body p-0 bg-light border border-dark">
-                  <div class="row m-0">
-                    <div class="col-4 p-0 text-center">
-                      <img
-                        src="img/mycars/car_c.jfif"
-                        alt="..."
-                        class="img-fluid border border-secondary"
-                      />
-                      <a href="..." class="stretched-link"> </a>
-                    </div>
-
-                    <div class="col-8 px-1">
-                      <a href="..." class="stretched-link"> </a>
-                      Brand Name : <span class="font-weight-bold">Ford</span>
-                      <br />
-                      Millages : <span class="font-weight-bold">7800km</span
-                      ><br />
-                      Registration Year :
-                      <span class="font-weight-bold">2009</span><br />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- card data row end -->
+          <!-- vehicle data row end -->
         </div>
       </div>
       <!-- page content end -->
 
       <!-- footer start -->
-      <!--  <div class="fixed-bottom text-center" data-role="footer"></div> -->
+      <!-- <div data-position="fixed" data-role="footer">
+        <div data-role="navbar">
+          <ul>
+            <li>
+              <button
+                id="refresh_btn"
+                href="#"
+                data-theme="b"
+                class="ui-icon-refresh ui-btn-icon-bottom"
+              >
+                Reload Vehicles
+              </button>
+            </li>
+            <li>
+              <a
+                href="add_vehicle.html"
+                data-ajax="false"
+                data-theme="b"
+                class="ui-icon-plus ui-btn-icon-bottom"
+                >Add New Vehicle</a
+              >
+            </li>
+          </ul>
+        </div> -->
+      <!-- /navbar -->
+      <!-- </div> -->
       <!-- footer end -->
     </div>
     <!-- login_seccess_Page2(my_vehicle) end-->
@@ -263,5 +229,6 @@
 
     <!-- import custom js -->
     <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/my_vehicle.js"></script>
   </body>
 </html>

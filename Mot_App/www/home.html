@@ -91,6 +91,7 @@
               <a
                 href="my_vehicle.html"
                 data-rel="close"
+                data-ajax="false"
                 style="font-size: 20px;"
                 ><img src="img/menubar/my_car.png" class="ui-li-icon" />My
                 Vehicle</a
@@ -148,9 +149,9 @@
               <div class="card p-2 font-weight-bold text-center">
                 My Reminders
               </div>
-              <button id="btn">press</button>
             </div>
           </div>
+          <button id="btn">press</button>
 
           <div class="row">
             <div class="col px-0">
@@ -174,16 +175,14 @@
           <!-- footer start -->
           <div
           data-position="fixed"
-            data-role="footer"
-            
-          >
+            data-role="footer" data-tap-toggle="false">
           <div data-role="navbar">
             <ul>
               <li><button id="refresh_btn" href="#" data-theme="b" class="ui-icon-refresh ui-btn-icon-bottom">Refresh</button></li>
               <li><a href="add_reminder.html" data-ajax="false" data-theme="b" class="ui-icon-plus ui-btn-icon-bottom">Add Reminder</a></li>
             </ul>
           </div><!-- /navbar -->
-        </div>
+        </div><!-- footer end -->
       </div>
     </div>
     <!-- homePage(home page) end-->

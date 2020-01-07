@@ -9,8 +9,6 @@
       name="viewport"
       content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover"
     />
-    <!--<meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" /> -->
-    <!-- Add jquery mobile -->
     <link
       rel="stylesheet"
       href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"
@@ -52,9 +50,9 @@
     <div data-role="page" id="add_reminder" class="h-100">
       <!-- header start -->
       <div data-role="header" data-theme="b">
-        <a href="home.html" data-ajax="false" class="m-1" data-theme="b" data-icon="delete">Cancel</a>
+        <a href="home.html" data-rel="back" class="m-1" data-theme="b" data-icon="delete">Cancel</a>
         <h1 class="m-1">Add Reminder</h1>
-        <a href="home.html" data-ajax="false" class="m-1 bg-success" data-icon="check">Save</a>
+        <a id="add-reminder" href="#" data-ajax="false" class="m-1 bg-success" data-icon="check">Save</a>
       </div>
       <!-- header end -->
 
@@ -78,7 +76,7 @@
                   type="date"
                   data-clear-btn="true"
                   name="date"
-                  id="data"
+                  id="date"
                   data-mini="true"
                 />
                 <label class="mt-2 m-1 font-weight-bold">Reminder Note*:</label>
@@ -110,7 +108,7 @@
                 </div>
               </div>
             </form>
-          <hr>
+            <hr>
             </div>
           </div>
           <!-- page content end -->
