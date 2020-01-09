@@ -91,7 +91,15 @@ function signupAjax(reg_no, username, password) {
     }
   });
 }
-
+// show and hide loader on ajax calls
+$(document).on({
+  ajaxStart: function() {
+    $(".ui-loader").show();
+  },
+  ajaxStop: function() {
+    $(".ui-loader").hide();
+  }
+});
 // ****************************FUNCTIONS****************************
 // hide the footer on the keybord is active.
 $("input").blur(function() {

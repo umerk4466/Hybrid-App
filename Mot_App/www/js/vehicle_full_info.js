@@ -1,9 +1,6 @@
 // set to the default size after keyboard is opened
 $("body").height(window.innerHeight);
 
-// // get user data from local storage
-// var username = localStorage.getItem("username");
-
 // ****************************AJAX****************************
 // ajax function to get vehicle all data
 function getVehicleInfoAjax(vehicle_id) {
@@ -13,7 +10,7 @@ function getVehicleInfoAjax(vehicle_id) {
       vehicle_id,
     dataType: "json",
     type: "GET",
-    timeout: 3000,
+    timeout: 6000,
     success: function(data, status) {
       if (data.img_url === null) {
         data.img_url = "img/mycars/no_image.jpg";
@@ -55,12 +52,21 @@ function getVehicleInfoAjax(vehicle_id) {
     }
   });
 }
+// show and hide loader on ajax calls
+$(document).on({
+  ajaxStart: function() {
+    $(".ui-loader").show();
+  },
+  ajaxStop: function() {
+    $(".ui-loader").hide();
+  }
+});
 
 // ****************************FUNCTIONS****************************
-// jquery function on click
-// // fucntion on load page, to load all data from the reminder api
+
 $(document).ready(function() {
-  // get parameters which is passed from the the url to this page
-  var vehicle_id = location.search.split("car_info=")[1];
+  // get parameters which is passed from the the other page in the session storage
+  var vehicle_id = window.sessionStorage.getItem("full_info_vehicle_id"); //Get key name
+  // alert(vehicle_id);
   getVehicleInfoAjax(vehicle_id);
 });

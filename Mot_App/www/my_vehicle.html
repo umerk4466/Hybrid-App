@@ -56,6 +56,10 @@
     <!-- ------------------------------------------------------ -->
     <!-- my_vehicle_Page(my_vehicle) start-->
     <div data-role="page" id="my_vehicle_Page" class="h-100">
+      <!-- add loader for ajax and ither calls -->
+      <div class="ui-loader"></div>
+      <!-- add loader for ajax and ither calls -->
+      <div class="ui-loader"></div>
       <!-- menu panel page2 start -->
       <div
         data-role="panel"
@@ -77,7 +81,7 @@
               <a
                 href="home.html"
                 data-ajax="false"
-                data-rel="close"
+                data-transition="slide"
                 style="font-size: 20px;"
                 ><img src="img/menubar/home.png" class="ui-li-icon" />Home</a
               >
@@ -90,7 +94,7 @@
             <li data-theme="b">
               <a
                 href="#my_vehicle_Page"
-                data-rel="close"
+                data-transition="slide"
                 style="font-size: 20px;"
                 ><img src="img/menubar/my_car.png" class="ui-li-icon" />My
                 Vehicle</a
@@ -99,10 +103,28 @@
             <li>
               <a
                 href="add_vehicle.html"
-                data-rel="close"
+                data-ajax="false"
+                data-transition="slide"
                 style="font-size: 20px;"
                 ><img src="img/menubar/add_car.png" class="ui-li-icon" />Add
                 Vehicle</a
+              >
+            </li>
+
+            <li data-role="list-divider" class="py-0" style="font-size: 17px;">
+              REMINDER
+            </li>
+
+            <li>
+              <a
+                href="add_reminder.html"
+                data-ajax="false"
+                data-transition="slide"
+                style="font-size: 20px;"
+                ><img
+                  src="img/menubar/add_reminder.png"
+                  class="ui-li-icon"
+                />Add Reminder</a
               >
             </li>
 
@@ -111,7 +133,11 @@
             </li>
 
             <li>
-              <a href="setting.html" data-rel="close" style="font-size: 20px;"
+              <a
+                href="setting.html"
+                data-ajax="false"
+                data-transition="slide"
+                style="font-size: 20px;"
                 ><img
                   src="img/menubar/setting.png"
                   class="ui-li-icon"
@@ -195,7 +221,12 @@
       <!-- page content end -->
 
       <!-- footer start -->
-      <!-- <div data-position="fixed" data-role="footer">
+      <div
+        data-position="fixed"
+        data-role="footer"
+        data-tap-toggle="false"
+        data-fullscreen="true"
+      >
         <div data-role="navbar">
           <ul>
             <li>
@@ -205,7 +236,7 @@
                 data-theme="b"
                 class="ui-icon-refresh ui-btn-icon-bottom"
               >
-                Reload Vehicles
+                Refresh
               </button>
             </li>
             <li>
@@ -218,11 +249,12 @@
               >
             </li>
           </ul>
-        </div> -->
-      <!-- /navbar -->
-      <!-- </div> -->
+        </div>
+        <!-- /navbar -->
+      </div>
       <!-- footer end -->
     </div>
+
     <!-- login_seccess_Page2(my_vehicle) end-->
 
     <!-- ------------------------------------------------------ -->

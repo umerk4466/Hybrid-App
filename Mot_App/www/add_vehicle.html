@@ -9,8 +9,6 @@
       name="viewport"
       content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover"
     />
-    <!--<meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" /> -->
-    <!-- Add jquery mobile -->
     <link
       rel="stylesheet"
       href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"
@@ -25,9 +23,10 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
+    <!-- NOT SLIM -->
     <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
       crossorigin="anonymous"
     ></script>
     <script
@@ -40,131 +39,95 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
-
-    <!-- Add custom css -->
-    <!-- <link rel="stylesheet" type="text/css" href="css/add_vehicle.css" /> -->
   </head>
 
   <body>
     <!-- ------------------------------------------------------ -->
 
-    <!-- add_vehicle_page(add_vehicle) start-->
-    <div data-role="page" id="add_vehicle_page" class="h-100">
-      <!-- menu panel page1 start -->
-      <div
-        data-role="panel"
-        id="add_vehicle_menu"
-        data-position="left"
-        data-display="overlay"
+    <!-- add_vehicle(add_vehicle page) start-->
+    <div data-role="page" id="add_reminder" class="h-100">
+    <!-- add loader for ajax and ither calls -->
+    <div class="ui-loader"></div>
+    <!-- header start -->
+    <div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme="b">
+      <a
+        href="#"
+        data-rel="back"
+        class="m-1"
+        data-theme="b"
+        data-icon="delete"
+        >Cancel</a
       >
-        <!-- menu panel content goes here -->
-        <div class="ui-panel-inner">
-          <ul data-role="listview">
-            <li
-              data-role="list-divider"
-              class="py-1 text-center"
-              style="font-size: 20px;"
-            >
-              Menu
-            </li>
-            <li>
-              <a href="home.html" data-rel="external" style="font-size: 20px;"
-                ><img src="img/menubar/home.png" class="ui-li-icon" />Home</a
-              >
-            </li>
-
-            <li data-role="list-divider" class="py-0" style="font-size: 17px;">
-              CAR
-            </li>
-
-            <li>
-              <a
-                href="my_vehicle.html"
-                data-rel="external"
-                style="font-size: 20px;"
-                ><img src="img/menubar/my_car.png" class="ui-li-icon" />My
-                Vehicle</a
-              >
-            </li>
-            <li data-theme="b">
-              <a
-                href="#add_vehicle_page"
-                data-rel="external"
-                style="font-size: 20px;"
-                ><img src="img/menubar/add_car.png" class="ui-li-icon" />Add
-                Vehicle</a
-              >
-            </li>
-
-            <li data-role="list-divider" class="py-0" style="font-size: 17px;">
-              OTHER
-            </li>
-
-            <li>
-              <a
-                href="setting.html"
-                data-rel="external"
-                style="font-size: 20px;"
-                ><img
-                  src="img/menubar/setting.png"
-                  class="ui-li-icon"
-                />Setting</a
-              >
-            </li>
-          </ul>
-        </div>
-      </div>
-      <!-- /menu panel page1 -->
-
-      <!-- header start -->
-      <div data-role="navbar" data-iconpos="left">
-        <ul>
-          <li>
-            <a
-              href="#add_vehicle_menu"
-              data-icon="bars"
-              data-theme="b"
-              style="font-size: 20px;"
-              >Add New Vehicle</a
-            >
-          </li>
-        </ul>
-      </div>
-      <!-- /navbar -->
-      <!-- header end -->
+      <h1 class="m-1">Add Vehicle</h1>
+      <a
+        id="add-vehicle"
+        href="#"
+        class="m-1 bg-success"
+        data-icon="check"
+        >Add Now</a
+      >
+    </div>
+    <!-- header end -->
 
       <!-- page content start -->
-      <div data-role="main" class="ui-content px-0">
-        <div class="container text-center">
-          <div class="row mt-3">
-            <div class="col"></div>
-          </div>
+      <div data-role="main" class="ui-content p-0">
 
-          <div class="row mt-4">
-            <div class="col">
-              <div id="a">
-                ksjk
-                <div></div>
-              </div>
-
-              <div class="row mt-2 p-3">
-                <div class="col"></div>
-              </div>
-            </div>
-          </div>
-          <!-- page content end -->
-
-          <!-- footer start -->
-          <!-- <div class="fixed-bottom text-center" data-role="footer"></div> -->
-          <!-- footer end -->
+        <div id="heading" class="card p-1 font-weight-bold text-center">
+          Please fill your vehicle info below
         </div>
-      </div>
-    </div>
-    <!-- add_vehicle_page(add_vehicle) end-->
+
+      <div class="col">
+      <form>
+        <div class="ui-field-contain">
+          <label class="mt-2 font-weight-bold">Vehicle Manufacturer*:</label>
+          <input type="text" data-clear-btn="true" id="manufacturer"  placeholder="Ford, Toyota, Bmw etc"/>
+          
+          <label class="mt-2 font-weight-bold">Vehicle Millage*:</label>
+          <input id="millage" type="number" data-clear-btn="true" placeholder="33000Km"/>
+          
+          <label class="mt-2 font-weight-bold">Registration Year*:</label>
+          <input type="number" data-clear-btn="true" id="reg_year"  placeholder="2019"/>
+          
+          <label class="mt-2 font-weight-bold">Registration Number*:</label>
+          <input type="text" data-clear-btn="true" id="reg_number"  placeholder="ABC2039L"/>
+
+          <label class="mt-2 font-weight-bold">MOT Due*:</label>
+          <input type="date" data-clear-btn="true" id="mot_due"/>
+          
+          <label class="mt-2 font-weight-bold">Insurance Due*:</label>
+          <input type="date" data-clear-btn="true" id="ins_due"/>
+
+          <label class="mt-2 font-weight-bold">Last MOT Done On*:</label>
+          <input type="date" data-clear-btn="true" id="mot_on"/>
+         
+          <label class="mt-2 font-weight-bold">Additional Note:</label>
+          <textarea id="additional_note" placeholder="Note"></textarea>
+
+          <label class="mt-2 font-weight-bold">Vehicle Image Valid Url:</label>
+          <input type="url" id="img_link" placeholder="https://www.myimgllink.com/mycar"></input>
+          
+          <label class="mt-2 font-weight-bold">Repair Needed for this vehicle:</label>
+          <textarea id="repair_needed" placeholder="Need to change Brake pads etc"/></textarea>
+
+          <label class="mt-2 font-weight-bold">Vehicle Condition:</label>
+            <select data-theme="b" id="select-condition">
+              <option value="">Choose...</option>
+              <option value="Excellent">Excellent</option>
+              <option value="Good">Good</option>
+              <option value="Bad">Bad</option>
+            </select>
+        
+          </div><!--fied contain end-->
+      </form>
+    </div> <!--col end-->
+    </div> <!--page content end-->
+      <hr />
+    </div><!-- add_vehicle(add_vehicle page) end-->
 
     <!-- ------------------------------------------------------ -->
 
     <!-- import custom js -->
     <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/add_vehicle.js"></script>
   </body>
 </html>

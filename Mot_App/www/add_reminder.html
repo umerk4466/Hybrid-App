@@ -39,8 +39,7 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
-    <!-- Add custom css -->
-    <!-- <link rel="stylesheet" type="text/css" href="css/index.css" /> -->
+
   </head>
 
   <body>
@@ -48,11 +47,17 @@
 
     <!-- add_reminder(add_reminder page) start-->
     <div data-role="page" id="add_reminder" class="h-100">
+      <!-- add loader for ajax and ither calls -->
+      <div class="ui-loader"></div>
       <!-- header start -->
       <div data-role="header" data-theme="b">
-        <a href="home.html" data-rel="back" class="m-1" data-theme="b" data-icon="delete">Cancel</a>
+        <a href="#"
+        data-rel="back"
+        class="m-1"
+        data-theme="b"
+        data-icon="delete">Cancel</a>
         <h1 class="m-1">Add Reminder</h1>
-        <a id="add-reminder" href="#" data-ajax="false" class="m-1 bg-success" data-icon="check">Save</a>
+        <a id="add-reminder" href="#" class="m-1 bg-success" data-icon="check">Save</a>
       </div>
       <!-- header end -->
 

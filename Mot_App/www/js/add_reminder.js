@@ -1,7 +1,6 @@
 // set to the default size after keyboard is opened
 $("body").height(window.innerHeight);
 
-// fucntion on load page, to load all data from the vehicle model api
 var username = localStorage.getItem("username");
 
 // ****************************AJAX****************************
@@ -78,7 +77,15 @@ function addReminderAjax(
     }
   });
 }
-
+// show and hide loader on ajax calls
+$(document).on({
+  ajaxStart: function() {
+    $(".ui-loader").show();
+  },
+  ajaxStop: function() {
+    $(".ui-loader").hide();
+  }
+});
 // ****************************FUNCTIONS****************************
 // on click on save-button, validations etc check
 $("#add-reminder").click(function() {

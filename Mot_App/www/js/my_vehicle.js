@@ -4,16 +4,21 @@ $("body").height(window.innerHeight);
 // get user data from local storage
 var username = localStorage.getItem("username");
 
+// on start of the page load all the ajax data only for once
+// $("#my_vehicle_Page").one("click", showVehicleAjax(username));
+// showVehicleAjax(username);
 // ****************************AJAX****************************
 // ajax function for showing reminder of the user in home page
 function showVehicleAjax(username) {
+  alert("yess");
   $.ajax({
     url:
       "https://motproject01.pythonanywhere.com/api/get/user/vehicle/?username=" +
       username,
     dataType: "json",
     type: "GET",
-    timeout: 3000,
+    async: false,
+    timeout: 6000,
     success: function(data, status) {
       if (!$.trim(data)) {
         $("#vehicle_div_data").append(
@@ -55,6 +60,15 @@ function showVehicleAjax(username) {
     }
   });
 }
+// show and hide loader on ajax calls
+$(document).on({
+  ajaxStart: function() {
+    $(".ui-loader").show();
+  },
+  ajaxStop: function() {
+    $(".ui-loader").hide();
+  }
+});
 
 // ****************************FUNCTIONS****************************
 // jquery function on click
@@ -64,15 +78,12 @@ $("#refresh_btn").click(function() {
 });
 
 $("#btn").click(function() {
-  alert("yesd");
+  // alert("yesd");
   showVehicleAjax(username);
 });
 
 // on click vehicles list, and get id of the vehicle of which info need to show
 function ShowFullInfo(id) {
-  if (id == "" || id == null) {
-    alert("Error while loading page try again");
-  } else {
-    window.location.href = "vehicle_full_info.html?car_info=" + id;
-  }
+  window.sessionStorage.setItem("full_info_vehicle_id", id); //Set item
+  window.location = "vehicle_full_info.html";
 }

@@ -4,13 +4,14 @@ $("body").height(window.innerHeight);
 // get user data from local storage
 var username = localStorage.getItem("username");
 
+// on start of the page load all the ajax data only for once
+// $("#homePage").one("click", showReminderAjax(username));
 // ****************************FUNCTIONS****************************
 // jquery function on click
 // // fucntion on load page, to load all data from the reminder api
 // $(document).ready(function() {
 //   showReminderAjax(username);
 // });
-
 $("#refresh_btn").click(function() {
   window.location.reload();
   alert("Reaload Completed");
@@ -23,13 +24,14 @@ $("#btn").click(function() {
 // ****************************AJAX****************************
 // ajax function for showing reminder of the user in home page
 function showReminderAjax(username) {
+  alert("home ajax");
   $.ajax({
     url:
       "https://motproject01.pythonanywhere.com/api/get/user/reminder/?username=" +
       username,
     dataType: "json",
     type: "GET",
-    timeout: 3000,
+    timeout: 6000,
     success: function(data, status) {
       if (!$.trim(data)) {
         $("#reminder_list").append(
@@ -61,3 +63,12 @@ function showReminderAjax(username) {
     }
   });
 }
+// show and hide loader on ajax calls
+$(document).on({
+  ajaxStart: function() {
+    $(".ui-loader").show();
+  },
+  ajaxStop: function() {
+    $(".ui-loader").hide();
+  }
+});
