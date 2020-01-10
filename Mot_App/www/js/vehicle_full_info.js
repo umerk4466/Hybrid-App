@@ -2,6 +2,26 @@
 $("body").height(window.innerHeight);
 
 // ****************************AJAX****************************
+
+function removeVehicle(vehicle_id) {
+  $.ajax({
+    url:
+      "https://motproject01.pythonanywhere.com/api/remove/vehicle/?vehicle_id=" +
+      vehicle_id,
+    dataType: "json",
+    type: "GET",
+    timeout: 6000,
+    async: false,
+    success: function(data, status) {
+      $("#delete_vehicle_model").modal("toggle");
+      alert("Deleted Successfully");
+      window.location = "home.html";
+    },
+    error: function() {
+      alert("Could not delete this Vehicle from the server Please try again");
+    }
+  });
+}
 // ajax function to get vehicle all data
 function getVehicleInfoAjax(vehicle_id) {
   $.ajax({
@@ -69,4 +89,10 @@ $(document).ready(function() {
   var vehicle_id = window.sessionStorage.getItem("full_info_vehicle_id"); //Get key name
   // alert(vehicle_id);
   getVehicleInfoAjax(vehicle_id);
+
+  // if user click on the button to confir delet then delete this vehicle from the backend
+  $("#confirm_del_vehicle").click(function() {
+    // ajax to remove vehicle
+    removeVehicle(vehicle_id);
+  });
 });

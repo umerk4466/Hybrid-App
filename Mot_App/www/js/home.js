@@ -6,20 +6,10 @@ var username = localStorage.getItem("username");
 
 // on start of the page load all the ajax data only for once
 // $("#homePage").one("click", showReminderAjax(username));
-// ****************************FUNCTIONS****************************
-// jquery function on click
 // // fucntion on load page, to load all data from the reminder api
 // $(document).ready(function() {
 //   showReminderAjax(username);
 // });
-$("#refresh_btn").click(function() {
-  window.location.reload();
-  alert("Reaload Completed");
-});
-
-$("#btn").click(function() {
-  showReminderAjax(username);
-});
 
 // ****************************AJAX****************************
 // ajax function for showing reminder of the user in home page
@@ -41,17 +31,17 @@ function showReminderAjax(username) {
         // append all the data from the ajax json
         $.each(data, function(index, item) {
           $("#reminder_list").append(
-            "<a href='" +
-              item.id +
-              "' class='list-group-item list-group-item-action align-items-start text-dark'><div class='d-flex w-100 justify-content-between'><h4 class='mb-1'>" +
-              item.car_brand +
-              "</h4><small class='text-right'>" +
-              item.added_on +
-              "</small></div><p class='mb-1 max-text'>" +
-              item.reminder_note +
-              "</p><h6 class='text-info'>On " +
+            "<li style='font-size:medium;' class='ui-li-divider ui-bar-b ui-first-child' role='heading' data-role='list-divider' data-theme='b'>Reminder For : <span id='reminder_on'><strong>" +
               item.date +
-              "</h6></a>"
+              "</span></strong></li><li class='ui-last-child'><a id='reminder_id' href='#' onclick='ShowReminderFullInfo(" +
+              item.id +
+              ")' class='py-1 ui-btn ui-btn-icon-right ui-icon-carat-r'><h1 style='font-size: larger;'>About : <span id='vehicle_brand'><strong>" +
+              item.car_brand +
+              "</strong></span></h1><p id='note' style='font-size: medium;'>" +
+              item.reminder_note +
+              "</p><p>By <span id='username'><strong>" +
+              item.owner_name +
+              "</strong><span></p></a></li>"
           );
         });
       }
@@ -72,3 +62,21 @@ $(document).on({
     $(".ui-loader").hide();
   }
 });
+
+// ****************************FUNCTIONS****************************
+// jquery function on click
+
+$("#refresh_btn").click(function() {
+  window.location.reload();
+  alert("Reaload Completed");
+});
+
+$("#btn").click(function() {
+  showReminderAjax(username);
+});
+
+// on click reminder list, and get id of the reminder of which info need to show
+function ShowReminderFullInfo(id) {
+  window.sessionStorage.setItem("full_info_reminder_id", id); //Set item
+  window.location = "reminder_full_info.html";
+}
