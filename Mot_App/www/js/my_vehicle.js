@@ -21,7 +21,7 @@ function showVehicleAjax(username) {
     timeout: 6000,
     success: function(data, status) {
       if (!$.trim(data)) {
-        $("#vehicle_div_data").append(
+        $("#vehicle_ul_data").append(
           "<div class='alert alert-info alert-dismissible'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><h4 class='alert-heading'>Hello " +
             username +
             "! </h4>Currently you do not have any Vehicles, to add press below <strong>Add New Vehicle</strong> button.</div>"
@@ -30,7 +30,7 @@ function showVehicleAjax(username) {
         // append all the data from the ajax json
         $.each(data, function(index, item) {
           // if img is not provided then add default
-          if (item.img_url === null) {
+          if (item.img_url === null || item.img_url === "") {
             item.img_url = "img/mycars/no_image.jpg";
           }
           $("#vehicle_ul_data").append(

@@ -31,11 +31,11 @@ function showReminderAjax(username) {
         // append all the data from the ajax json
         $.each(data, function(index, item) {
           $("#reminder_list").append(
-            "<li style='font-size:medium;' class='ui-li-divider ui-bar-b ui-first-child' role='heading' data-role='list-divider' data-theme='b'>Reminder For : <span id='reminder_on'><strong>" +
+            "<li style='font-size:small;' class='ui-li-divider ui-bar-b ui-first-child' role='heading' data-role='list-divider'>Reminder For : <span id='reminder_on' class='float-right'><strong>" +
               item.date +
               "</span></strong></li><li class='ui-last-child'><a id='reminder_id' href='#' onclick='ShowReminderFullInfo(" +
               item.id +
-              ")' class='py-1 ui-btn ui-btn-icon-right ui-icon-carat-r'><h1 style='font-size: larger;'>About : <span id='vehicle_brand'><strong>" +
+              ")' class='py-1 ui-btn ui-btn-icon-right ui-icon-carat-r'><h1 style='font-size: medium;'>About : <span id='vehicle_brand'><strong>" +
               item.car_brand +
               "</strong></span></h1><p id='note' style='font-size: medium;'>" +
               item.reminder_note +

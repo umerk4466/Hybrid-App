@@ -41,18 +41,6 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
-
-    <!-- Style for the home page -->
-    <style>
-      .max-text {
-        display: block;
-        text-overflow: ellipsis;
-        word-wrap: break-word;
-        overflow: hidden;
-        max-height: 3em;
-        line-height: 1.5em;
-      }
-    </style>
   </head>
 
   <body>
@@ -183,11 +171,11 @@
                 id="reminder_list"
                 data-role="listview"
                 data-inset="false"
-                class="ui-listview ui-listview-inset ui-shadow"
+                class="ui-listview ui-listview-inset ui-corner-all ui-shadow"
               >
                 <!-- <li style="font-size:medium;" data-role="list-divider" data-theme="b">Reminder For : <span id="reminder_on"><strong> 12-31-2019 18:10</span></strong></li>
                 <li>
-                  <a id="reminder_id" href="#" class="py-1">
+                  <a id="reminder_id" href="#" onclick="show(1)" class="py-1">
                     <h1 style="font-size: larger;">About : <span id="vehicle_brand"><strong>Toyota</strong></span></h1>
                     <p id="note" style="font-size: medium;">Note of the reminder is this and i do not know what to write.</p>
                     <p>By <span id="username"><strong>umer</strong><span></p>

@@ -9,13 +9,13 @@ function removeVehicle(vehicle_id) {
       "https://motproject01.pythonanywhere.com/api/remove/vehicle/?vehicle_id=" +
       vehicle_id,
     dataType: "json",
-    type: "GET",
+    type: "POST",
     timeout: 6000,
     async: false,
     success: function(data, status) {
       $("#delete_vehicle_model").modal("toggle");
       alert("Deleted Successfully");
-      window.location = "home.html";
+      window.location = "my_vehicle.html";
     },
     error: function() {
       alert("Could not delete this Vehicle from the server Please try again");
@@ -32,7 +32,7 @@ function getVehicleInfoAjax(vehicle_id) {
     type: "GET",
     timeout: 6000,
     success: function(data, status) {
-      if (data.img_url === null) {
+      if (data.img_url === null || data.img_url === "") {
         data.img_url = "img/mycars/no_image.jpg";
       }
       $("#full_vehicle_div").append(

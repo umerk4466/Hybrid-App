@@ -1,1 +1,169 @@
-reminder full info page
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- basic phonegap imports -->
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover"
+    />
+    <link
+      rel="stylesheet"
+      href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"
+    />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <!-- font awsome -->
+    <link 
+    href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" 
+    rel="stylesheet"  type='text/css'>    
+    <!-- Add bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    
+    <!-- NOT SLIM -->
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+
+    ></script>
+
+  </head>
+
+  <body>
+    <!-- ------------------------------------------------------ -->
+
+    <!-- reminder_full_info_page(reminder_full_info_page) start-->
+    <div data-role="page" id="reminder_full_info_page" class="h-100">
+      <!-- add loader for ajax and ither calls -->
+      <div class="ui-loader"></div>
+      <!-- header start -->
+      <div data-role="header" data-theme="b">
+        <a href="#" data-rel="back" class="m-1" data-theme="b" data-icon="back">Back</a>
+        <h1 class="m-1">Reminder Detail</h1>
+      </div>
+      <!-- header end -->
+
+      <!-- page content start -->
+      <div data-role="main" class="ui-content p-0">
+        <div class="container">
+          <div class="row">
+            <div class="col px-0">
+              <div class="card p-1 font-weight-bold text-center">
+                <span>Full information of my reminder <i class="fa fa-bell"></i></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- delete confirmation model -->
+          <div id="delete_reminder_model" class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-body pb-0">
+                  <h5 style="color:red">Important Note :</h5>
+                  <p><strong>Are you sure to Delete this reminder?</strong></p>
+                </div>
+                <div class="modal-footer p-2">
+                  <button id="confirm_del_reminder" data-theme="b" class="bg-danger" data-mini="true"">Yes Delete Now</button>
+                  <button data-theme="b" data-mini="true" data-dismiss="modal">No</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- delete confirmation model end -->
+
+
+          <!-- editable input model start -->
+          <div id="edit-model" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header py-2">
+                    <h5 class="modal-title">Edit Your Reminder</h5>
+                </div>
+                <div class="modal-body bg-light border p-2">     
+                    <div class="ui-field-contain">               
+                        <label id="label" class="font-weight-bold"></label>
+                        <textarea id="new-reminder-note" active="no" class="h-100 mb-2" rows="3" placeholder="Type Here..." data-mini="true"></textarea>
+                        <textarea id="new-reminder-field" active="no" class="h-100 mb-2" rows="3" placeholder="Type Here..." data-mini="true"></textarea>
+                        <input id="new-date" type="date" active="no" class="mb-2" data-mini="true"></input>
+                    </div>
+                </div>
+                <div class="modal-footer p-2 bg-light border">
+                  <button id="change_btn" data-theme="b" class="bg-danger" data-mini="true">Change Now</button>
+                  <button data-theme="b" data-dismiss="modal" data-mini="true">Cancel</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- editable input model end -->
+          
+
+          <div class="row h-100">
+            <div id="full_reminder_div" class="col px-0">
+              <!-- full reminder data start -->
+              <!-- <div class="card">                
+                <ul data-role="listview" class="m-0 ui-listview">
+                  <li data-role='list-divider' role='heading' class='ui-li-divider ui-bar-inherit ui-first-child'>Reminder Details &nbsp;<i class="fa fa-pencil"></i></li>
+                  <li><a href="#" onclick="edit_Function('edit-date')" class="font-weight-light edit ui-btn ui-btn-icon-right ui-icon-carat-r"><i class="fa fa-calendar"></i>&nbsp; Reminder Date <span id="edit-date" class="float-right font-weight-bold"><strong>date</strong></span></a></li>
+                  <li><a onclick="edit_Function('edit-note')" style="white-space: normal;" href="#" class="font-weight-light edit ui-btn ui-btn-icon-right ui-icon-carat-r"><i class="fa fa-check-square-o"></i>&nbsp; Remind Me About : <br><span id="edit-note" class="font-weight-bold">reminder_note is here type what ever is is here type what ever isis here type what ever is</span></a></li>
+                  <li><a onclick="edit_Function('edit-field')" style="white-space: normal;" href="#" class="font-weight-light edit ui-btn ui-btn-icon-right ui-icon-carat-r"><i class="fa fa-bookmark"></i>&nbsp; Reminder Other field : <br><span id="edit-field" class="font-weight-bold">extra_field is here type what ever is</span></a></li>
+                  <li class='ui-li-static ui-body-inherit'><i class="fa fa-clock-o"></i>&nbsp; Added On <span class="float-right"><strong>added_on</strong></span></li>
+
+                  <li data-role='list-divider' role='heading' class='ui-li-divider ui-bar-inherit ui-first-child'>Reminder's Vehicle Info &nbsp;<i class="fa fa-info-circle"></i></li>
+                  <li class='ui-li-static ui-body-inherit'><i class="fa fa-car"></i>&nbsp; Vehicle Brand <span class="float-right"><strong>car_brand</strong></span></li>
+                  <li class='ui-li-static ui-body-inherit'><i class="fa fa-user"></i>&nbsp; Vehicle Owner  <span class="float-right"><strong>owner_name</strong></span></li>
+                  <li class='ui-li-static ui-body-inherit'><i class="fa fa-sort-numeric-asc"></i>&nbsp; Vehicle Unique id <span class="float-right"><strong>vehicle</strong></span></li>
+                
+                </ul>
+
+              </div> -->
+              <!-- full reminder data end -->
+              
+            </div>
+          </div>
+          <hr>
+          <!-- page content end -->
+
+          <!-- footer start -->
+          <div
+          data-position="fixed"
+            data-role="footer" data-tap-toggle="false">
+          <div data-role="navbar">
+            <ul>
+              <li><button href="#" data-toggle="modal" data-target="#delete_reminder_model" data-theme="b" class="ui-icon-delete ui-btn-icon-bottom">Delete This Reminder</button></li>
+              <li><button href="#" id="update_reminder" data-theme="b" class="ui-icon-edit ui-btn-icon-bottom">Update Reminder</button></li>
+            </ul>
+          </div><!-- /navbar -->
+        </div><!-- footer end -->
+
+
+          </div>
+        </div>
+      </div>
+    <!-- reminder_full_info_page(reminder_full_info_page) end-->
+
+    <!-- ------------------------------------------------------ -->
+
+    <!-- import custom js -->
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/reminder_full_info.js"></script>
+  </body>
+</html>
