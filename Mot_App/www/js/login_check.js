@@ -135,3 +135,25 @@ function changeSignupInputColor(color) {
     $("#signup-vehicle-no").css("border-bottom", "");
   }
 }
+
+// prevent to go back if user press the back button afer logout etc
+function onLoad() {
+  document.addEventListener("deviceready", deviceReady, false);
+}
+function deviceReady() {
+  document.addEventListener("backbutton", backButtonCallback, false);
+}
+function backButtonCallback() {
+  navigator.notification.confirm(
+    "Do you want to exit from MotApp?",
+    confirmCallback
+  );
+}
+function confirmCallback(buttonIndex) {
+  if (buttonIndex == 1) {
+    navigator.app.exitApp();
+    return true;
+  } else {
+    return false;
+  }
+}
