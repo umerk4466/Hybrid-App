@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <!-- basic phonegap imports -->
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover"
+    />
+    <link
+      rel="stylesheet"
+      href="css/jquery.mobile-1.4.5.min.css"
+    />
+    <script src="js/local/jquery-1.11.1.min.js"></script>
+    <script src="js/local/jquery.mobile-1.4.5.min.js"></script>
+
+    <!-- Add bootstrap -->
+    <link
+      rel="stylesheet"
+      href="css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <!-- NOT SLIM -->
+    <script
+      src="js/local/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="js/local/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="js/local/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <!-- ------------------------------------------------------ -->
+
+    <!-- add_vehicle(add_vehicle page) start-->
+    <div data-role="page" id="add_reminder" class="h-100">
+    <!-- add loader for ajax and ither calls -->
+    <div class="ui-loader"></div>
+    <!-- header start -->
+    <div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme="b">
+      <a
+        href="#"
+        data-rel="back"
+        class="m-1"
+        data-theme="b"
+        data-icon="delete"
+        >Cancel</a
+      >
+      <h1 class="m-1">Add Vehicle</h1>
+      <a
+        id="add-vehicle"
+        href="#"
+        class="m-1 bg-success"
+        data-icon="check"
+        >Add Now</a
+      >
+    </div>
+    <!-- header end -->
+
+      <!-- page content start -->
+      <div data-role="main" class="ui-content p-0">
+
+        <div id="heading" class="card p-1 font-weight-bold text-center">
+          Please fill your vehicle info below
+        </div>
+
+      <div class="col">
+      <form>
+        <div class="ui-field-contain">
+          <label class="mt-2 font-weight-bold">Vehicle Manufacturer*:</label>
+          <input type="text" data-clear-btn="true" id="manufacturer"  placeholder="Ford, Toyota, Bmw etc"/>
+          
+          <label class="mt-2 font-weight-bold">Vehicle Millage*:</label>
+          <input id="millage" type="number" data-clear-btn="true" placeholder="33000Km"/>
+          
+          <label class="mt-2 font-weight-bold">Registration Year*:</label>
+          <input type="number" data-clear-btn="true" id="reg_year"  placeholder="2019"/>
+          
+          <label class="mt-2 font-weight-bold">Registration Number*:</label>
+          <input type="text" data-clear-btn="true" id="reg_number"  placeholder="ABC2039L"/>
+
+          <label class="mt-2 font-weight-bold">MOT Due*:</label>
+          <input type="date" data-clear-btn="true" id="mot_due"/>
+          
+          <label class="mt-2 font-weight-bold">Insurance Due*:</label>
+          <input type="date" data-clear-btn="true" id="ins_due"/>
+
+          <label class="mt-2 font-weight-bold">Last MOT Done On*:</label>
+          <input type="date" data-clear-btn="true" id="mot_on"/>
+         
+          <label class="mt-2 font-weight-bold">Additional Note:</label>
+          <textarea id="additional_note" placeholder="Note"></textarea>
+
+          <label class="mt-2 font-weight-bold">Vehicle Image Valid Url:</label>
+          <input type="url" id="img_link" placeholder="https://www.myimgllink.com/mycar"></input>
+          
+          <label class="mt-2 font-weight-bold">Repair Needed for this vehicle:</label>
+          <textarea id="repair_needed" placeholder="Need to change Brake pads etc"/></textarea>
+
+          <label class="mt-2 font-weight-bold">Vehicle Condition:</label>
+            <select data-theme="b" id="select-condition">
+              <option value="">Choose...</option>
+              <option value="Excellent">Excellent</option>
+              <option value="Good">Good</option>
+              <option value="Bad">Bad</option>
+            </select>
+        
+          </div><!--fied contain end-->
+      </form>
+    </div> <!--col end-->
+    </div> <!--page content end-->
+      <hr />
+    </div><!-- add_vehicle(add_vehicle page) end-->
+
+    <!-- ------------------------------------------------------ -->
+
+    <!-- import custom js -->
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/add_vehicle.js"></script>
+  </body>
+</html>

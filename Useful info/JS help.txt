@@ -1,0 +1,34 @@
+function (tx, resultSet) {
+	try {
+		for (resultSet; resultSet !== null; resultSet = Object.getPrototypeOf(resultSet)) {
+			result = result.concat(Object.getOwnPropertyNames(resultSet));
+		}
+			alert(result);
+	}
+	catch (e) {
+		alert(e);
+	}
+	/*
+	for (var x = 0; x < resultSet.rows.length; x++) {
+		console.log(resultSet.rows.item(x));
+	}
+	*/
+}
+
+for (var i = 0; i < resultSet.rows.length; i++) {
+	row = resultSet.rows.item(i);
+	console.log("row is " + JSON.stringify(row));
+}
+
+
+/*
+tx.executeSql('SELECT * FROM customerAccounts', [],
+	function (tx, resultSet) {
+		console.log(resultSet.rows.item(0).username);
+		for (var i = 0; i < resultSet.rows.length; i++) {
+			row = resultSet.rows.item(i);
+			console.log("row is " + JSON.stringify(row));
+		}
+
+	}, _dbSqlError);
+*/

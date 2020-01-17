@@ -1,0 +1,11 @@
+{
+  "background_color": "#FFF",
+  "display": "standalone",
+  "name": "Mot_App",
+  "short_name": "Mot_App",
+  "version": "unigroup.mot_app",
+  "description": "Mot_App will remind you when your car insurnt or mot is finishing and also you can add multiple cars data in your personal account and can access at any time",
+  "author": "motproject01.pythonanywhere.com Team",
+  "icons": [],
+  "start_url": "index.html"
+}

@@ -1,0 +1,243 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <!-- basic phonegap imports -->
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover"
+    />
+    <!--<meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+    <!-- Add jquery mobile -->
+    <link
+      rel="stylesheet"
+      href="css/jquery.mobile-1.4.5.min.css"
+    />
+    <script src="js/local/jquery-1.11.1.min.js"></script>
+    <script src="js/local/jquery.mobile-1.4.5.min.js"></script>
+
+    <!-- Add bootstrap -->
+    <link
+      rel="stylesheet"
+      href="css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <!-- NOT SLIM -->
+    <script
+      src="js/local/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="js/local/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="js/local/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Style for the home page -->
+    <style>
+      .max-text {
+        display: block;
+        text-overflow: ellipsis;
+        word-wrap: break-word;
+        overflow: hidden;
+        max-height: 3em;
+        line-height: 1.5em;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ------------------------------------------------------ -->
+
+    <!-- homePage(home page) start-->
+    <div data-role="page" id="homePage" class="h-100">
+      <!-- menu panel page1 start -->
+      <div
+        data-role="panel"
+        id="home_menu"
+        data-position="left"
+        data-display="overlay"
+      >
+        <!-- menu panel content goes here -->
+        <div class="ui-panel-inner">
+          <ul data-role="listview">
+            <li
+              data-role="list-divider"
+              class="py-1 text-center"
+              style="font-size: 20px;"
+            >
+              Menu
+            </li>
+            <li data-theme="b">
+              <a href="#homePage" style="font-size: 20px;"
+                ><img src="img/menubar/home.png" class="ui-li-icon" />Home</a
+              >
+            </li>
+
+            <li data-role="list-divider" class="py-0" style="font-size: 17px;">
+              CAR
+            </li>
+
+            <li>
+              <a
+                href="my_vehicle.html"
+                data-ajax="false"
+                data-transition="slide"
+                style="font-size: 20px;"
+                ><img src="img/menubar/my_car.png" class="ui-li-icon" />My
+                Vehicle</a
+              >
+            </li>
+            <li>
+              <a
+                href="add_vehicle.html"
+                data-ajax="false"
+                data-transition="slide"
+                style="font-size: 20px;"
+                ><img src="img/menubar/add_car.png" class="ui-li-icon" />Add
+                Vehicle</a
+              >
+            </li>
+
+            <li data-role="list-divider" class="py-0" style="font-size: 17px;">
+              REMINDER
+            </li>
+
+            <li>
+              <a
+                href="add_reminder.html"
+                data-ajax="false"
+                data-transition="slide"
+                style="font-size: 20px;"
+                ><img
+                  src="img/menubar/add_reminder.png"
+                  class="ui-li-icon"
+                />Add Reminder</a
+              >
+            </li>
+
+            <li data-role="list-divider" class="py-0" style="font-size: 17px;">
+              OTHER
+            </li>
+
+            <li>
+              <a
+                href="setting.html"
+                data-ajax="false"
+                data-transition="slide"
+                style="font-size: 20px;"
+                ><img
+                  src="img/menubar/setting.png"
+                  class="ui-li-icon"
+                />Setting</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- /menu panel page1 -->
+
+      <!-- header start -->
+      <div data-role="navbar" data-iconpos="left">
+        <ul>
+          <li>
+            <a
+              href="#home_menu"
+              data-icon="bars"
+              data-theme="b"
+              style="font-size: 20px;"
+              >Home</a
+            >
+          </li>
+        </ul>
+      </div>
+      <!-- /navbar -->
+      <!-- header end -->
+
+      <!-- page content start -->
+      <div data-role="main" class="ui-content p-0">
+        <!-- add loader for ajax and ither calls -->
+        <div class="ui-loader"></div>
+        <div class="container">
+          <div class="row">
+            <div class="col px-0">
+              <div class="card p-2 font-weight-bold text-center">
+                My Reminders
+              </div>
+            </div>
+          </div>
+          <button id="btn">press</button>
+
+          <div class="row">
+            <div class="col px-0">
+              <ul
+                id="reminder_list"
+                data-role="listview"
+                data-inset="false"
+                class="ui-listview ui-listview-inset ui-shadow"
+              >
+                <!-- <li style="font-size:medium;" data-role="list-divider" data-theme="b">Reminder For : <span id="reminder_on"><strong> 12-31-2019 18:10</span></strong></li>
+                <li>
+                  <a id="reminder_id" href="#" class="py-1">
+                    <h1 style="font-size: larger;">About : <span id="vehicle_brand"><strong>Toyota</strong></span></h1>
+                    <p id="note" style="font-size: medium;">Note of the reminder is this and i do not know what to write.</p>
+                    <p>By <span id="username"><strong>umer</strong><span></p>
+                  </a>
+                </li> -->
+              </ul>
+            </div>
+            <!--col end-->
+          </div>
+          <!--row end-->
+        </div>
+        <!-- container end-->
+        <!-- page content end -->
+
+        <!-- footer start -->
+        <div data-position="fixed" data-role="footer" data-tap-toggle="false">
+          <div data-role="navbar">
+            <ul>
+              <li>
+                <button
+                  id="refresh_btn"
+                  href="#"
+                  data-theme="b"
+                  class="ui-icon-refresh ui-btn-icon-bottom"
+                >
+                  Refresh
+                </button>
+              </li>
+              <li>
+                <a
+                  href="add_reminder.html"
+                  data-ajax="false"
+                  data-theme="b"
+                  class="ui-icon-plus ui-btn-icon-bottom"
+                  >Add Reminder</a
+                >
+              </li>
+            </ul>
+          </div>
+          <!-- /navbar -->
+        </div>
+        <!-- footer end -->
+      </div>
+    </div>
+    <!-- homePage(home page) end-->
+
+    <!-- ------------------------------------------------------ -->
+
+    <!-- import custom js -->
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/home.js"></script>
+  </body>
+</html>
