@@ -53,6 +53,6 @@ var app = {
     // receivedElement.setAttribute('style', 'display:block;');
 
     // console.log('Received Event: ' + id);
-    console.log("receivedEvent runnig in the index.js");
+    console.log("receivedEvent running in the index.js");
   }
 };

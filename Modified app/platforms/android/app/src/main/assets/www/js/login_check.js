@@ -41,7 +41,7 @@ function login(username, password) {
         }).done(function () {
             // Make sure script works
             try {
-                login(username, password);
+                loginDB(username, password);
             }
             catch (e) {
                 // Send log if fails
@@ -106,7 +106,7 @@ function signup(reg_no, username, password) {
         }).done(function () {
             // Make sure script works
             try {
-                addUser(reg_no, username, password);
+                addUserDB(reg_no, username, password);
             }
             catch (e) {
                 // Send log if fails

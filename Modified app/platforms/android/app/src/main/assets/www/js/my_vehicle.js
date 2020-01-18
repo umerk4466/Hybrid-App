@@ -4,14 +4,13 @@ $("body").height(window.innerHeight);
 // get user data from local storage
 var username = localStorage.getItem("username");
 
-// on start of the page load all the ajax data only for once
-// $("#my_vehicle_Page").one("click", showVehicleAjax(username));
-// showVehicleAjax(username);
+// Load page after 250secs to prevent bugs
+$(document).ready(function () {
+    setTimeout(showVehicle, 250);
+ });
 
 // Show users vehicles
-function showVehicleAjax(username) {
-    alert("yess");
-
+function showVehicle() {
     try {
         // Load database script
         $.getScript("js/database.js", function (data, textStatus, jqxhr) {
@@ -23,7 +22,7 @@ function showVehicleAjax(username) {
             // Make sure script works
             try {
                 try {
-                    getVehicles(username);
+                    getVehiclesDB(username);
                 }
                 catch (e) {
                     console.debug("get vehicle error: " + e);
@@ -40,6 +39,8 @@ function showVehicleAjax(username) {
             function waitForDb() {
                 if (res != -1) {
                     if (res == 0) {
+                        // Reset res, stops potential bugs later
+                        res = -1;
                         // Went well
                         for (var i = 0; i < resultArr.length; i++) {
                             // if img is not provided then add default
@@ -79,6 +80,8 @@ function showVehicleAjax(username) {
                         // Shouldnt reach here but an unforseen thing can happen
                         alert("A strange error has occured");
                     }
+                    // Reset res also done earlier to prevent bugs
+                    res = -1;
                 }
                 else {
                     // Shouldnt timeout but could happen
@@ -114,12 +117,62 @@ $("#refresh_btn").click(function () {
 });
 
 $("#btn").click(function () {
+    window.location.reload();
+
     // alert("yesd");
-    showVehicleAjax(username);
+    showVehicle();
 });
 
 // on click vehicles list, and get id of the vehicle of which info need to show
 function ShowFullInfo(id) {
-    window.sessionStorage.setItem("full_info_vehicle_id", id); //Set item
-    window.location = "vehicle_full_info.html";
+    // Set items for full info page
+    try {
+        fullVehicleInfoDB(id);
+
+        // Wait for database
+        var tries = 0;
+        waitForDb();
+        function waitForDb() {
+            if (res != -1) {
+                if (res == 0) {
+                    // Went well
+                    // Save info for next page
+                    window.sessionStorage.setItem("full_info_vehicle_id", resultArr.vehicle_id);
+                    window.sessionStorage.setItem("full_info_manufacturer", resultArr.manufacturer);
+                    window.sessionStorage.setItem("full_info_millage", resultArr.millage);
+                    window.sessionStorage.setItem("full_info_condition", resultArr.condition);
+                    window.sessionStorage.setItem("full_info_registration_year", resultArr.registration_year);
+                    window.sessionStorage.setItem("full_info_registration_number", resultArr.registration_number);
+                    window.sessionStorage.setItem("full_info_last_mot_date", resultArr.last_mot_date);
+                    window.sessionStorage.setItem("full_info_mot_due", resultArr.mot_due);
+                    window.sessionStorage.setItem("full_info_insurance_due", resultArr.insurance_due);
+                    window.sessionStorage.setItem("full_info_vehicle_notes", resultArr.vehicle_notes);
+                    window.sessionStorage.setItem("full_info_repair_needed_note", resultArr.repair_needed_note);
+                    window.sessionStorage.setItem("full_info_img_url", resultArr.img_url);
+
+                    // Change page
+                    window.location = "vehicle_full_info.html";
+                }
+                else if (res == 2) {
+                    alert("Error connecting to database");
+                }
+                else {
+                    // Shouldnt reach here but an unforseen thing can happen
+                    alert("A strange error has occured");
+                }
+            }
+            else {
+                // Shouldnt timeout but could happen
+                if (tries < 10) {
+                    setTimeout(waitForDb, 200);
+                }
+                else {
+                    alert("Timed out");
+                }
+            }
+        }
+    }
+    catch (e) {
+        alert("Database error: " + e);
+    }
 }

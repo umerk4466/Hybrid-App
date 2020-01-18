@@ -41,7 +41,7 @@ function addVehicle(
             else {
                 // Make sure script works
                 try {
-                    addVehicle(username,
+                    addVehicleDB(username,
                         manufacturer,
                         millage,
                         condition,
@@ -97,60 +97,6 @@ function addVehicle(
     catch (e) {
         console.log("Signup Error" + e);
     }
-
-    /*
-    $.ajax({
-        url:
-            "https://motproject01.pythonanywhere.com/api/add/vehicle/?username=" +
-            username +
-            "&manufc=" +
-            manufacturer +
-            "&millage=" +
-            millage +
-            "&condition=" +
-            condition +
-            "&reg_year=" +
-            registration_year +
-            "&reg_number=" +
-            registration_number +
-            "&mot_due=" +
-            mot_due +
-            "&mot_date=" +
-            last_mot_date +
-            "&ins_due=" +
-            insurance_due +
-            "&img_url=" +
-            img_url +
-            "&repair_needed=" +
-            repair_needed_note +
-            "&note=" +
-            vehicle_notes,
-        dataType: "json",
-        type: "POST",
-        timeout: 6000,
-        success: function (data, status) {
-            if (data.message === "VehicleAddedSuccessfully") {
-                alert(
-                    "Your Vehicle " +
-                    manufacturer +
-                    "[" +
-                    registration_number +
-                    "] Aded Successfully"
-                );
-                changeVehicleInputColor("default");
-                window.location = "my_vehicle.html";
-            } else if (data.message === "FillRequiredFields") {
-                alert("Please fill the required fields");
-                changeVehicleInputColor("red");
-            }
-            $("#add-vehicle").prop("disabled", false);
-        },
-        error: function () {
-            alert("Somethis is wrong with Server. Try again");
-            $("#add-vehicle").prop("disabled", false);
-        }
-    });
-    */
 }
 
 // ****************************FUNCTIONS****************************

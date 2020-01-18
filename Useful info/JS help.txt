@@ -32,3 +32,22 @@ tx.executeSql('SELECT * FROM customerAccounts', [],
 
 	}, _dbSqlError);
 */
+
+try {
+    // Load database script
+    $.getScript("js/database.js", function (data, textStatus, jqxhr) {
+    //console.log(data); // Data returned
+    //console.log(textStatus); // Success
+    //console.log(jqxhr.status); 
+    //console.log("Load was performed.");
+    }).done(function () {
+		_dbLoaded = true;
+    })
+}
+catch (e) {
+	alert("Could not load the data from database please try again");
+    _dbLoaded = false;
+}
+
+
+

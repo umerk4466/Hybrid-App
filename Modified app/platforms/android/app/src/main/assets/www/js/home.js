@@ -4,18 +4,13 @@ $("body").height(window.innerHeight);
 // get user data from local storage
 var username = localStorage.getItem("username");
 
-// on start of the page load all the ajax data only for once
-// $("#homePage").one("click", showReminderAjax(username));
-// // fucntion on load page, to load all data from the reminder api
-// $(document).ready(function() {
-//   showReminderAjax(username);
-// });
+// Load page after 250secs to prevent bugs
+$(document).ready(function () {
+    setTimeout(showReminder, 250);
+});
 
-// ****************************AJAX****************************
-// ajax function for showing reminder of the user in home page
-function showReminderAjax(username) {
-    alert("home ajax");
-
+// Function for showing reminder of the user in home page
+function showReminder() {
     try {
         // Load database script
         $.getScript("js/database.js", function (data, textStatus, jqxhr) {
@@ -26,26 +21,38 @@ function showReminderAjax(username) {
         }).done(function () {
             // Make sure script works
             try {
-                getReminders(username);
+                allUsersRemindersDB(username);
             }
             catch (e) {
                 // Send log if fails
-                alert("Error adding user: " + e);
+                alert("Error getting reminders: " + e);
                 return;
             }
-
             // Wait for database
             var tries = 0;
             waitForDb();
             function waitForDb() {
                 if (res != -1) {
-                    if (res  == 0) {
-                        alert("Account for " + username + " is Created successfully login now");
-                        window.location = "index.html";
+                    if (res == 0) {
+                        res = -1;
+                        // append all the data from the ajax json
+                        for (var i = 0; i < resultArr.length; i++) {
+                            $("#reminder_list").append(
+                                "<li style='font-size:small;' class='ui-li-divider ui-bar-b ui-first-child' role='heading' data-role='list-divider'>Reminder For : <span id='reminder_on' class='float-right'><strong>" +
+                                resultArr[i].reminder_date +
+                                "</span></strong></li><li class='ui-last-child'><a id='reminder_id' href='#' onclick='ShowReminderFullInfo(" +
+                                resultArr[i].reminder_id +
+                                ")' class='py-1 ui-btn ui-btn-icon-right ui-icon-carat-r'><h1 style='font-size: medium;'>About : <span id='vehicle_brand'><strong>" +
+                                resultArr[i].car_brand +
+                                "</strong></span></h1><p id='note' style='font-size: medium;'>" +
+                                resultArr[i].reminder_note +
+                                "</p><p>By <span id='username'><strong>" +
+                                resultArr[i].username +
+                                "</strong><span></p></a></li>");
+                        }
                     }
-                    else if (res  == 1) {
-                        alert("This Username is already taken. Try another one");
-                        changeSignupInputColor("red");
+                    else if (res == 1) {
+                        $("#reminder_list").append("<div class='alert alert-info alert-dismissible'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><h4 class='alert-heading'>Welcome to MotApp!</h4>Currently you do not have any Reminders, to add press below <strong>Add Reminder</strong> button.</div>");
                     }
                     else if (res == 2) {
                         alert("Error connecting to database");
@@ -54,6 +61,7 @@ function showReminderAjax(username) {
                         // Shouldnt reach here but an unforseen thing can happen
                         alert("A strange error has occured");
                     }
+                    res = -1;
                 }
                 else {
                     // Shouldnt timeout but could happen
@@ -68,52 +76,8 @@ function showReminderAjax(username) {
         });
     }
     catch (e) {
-        console.log("Signup Error" + e);
+        console.log("Show Reminders Error" + e);
     }
-
-    $.ajax({
-      /*
-        url:
-            "https://motproject01.pythonanywhere.com/api/get/user/reminder/?username=" +
-            username,
-        dataType: "json",
-        type: "GET",
-        timeout: 6000,
-        success: function (data, status) {
-            // If not data
-            if (!$.trim(data)) {
-                $("#reminder_list").append(
-                    "<div class='alert alert-info alert-dismissible'>\
-<a href='#' class='close' data-dismiss='alert' aria-label='close'&times;</a>\
-<h4 class='alert-heading'>Welcome to MotApp!</h4>\
-Currently you do not have any Reminders, to add press below <strong>Add Reminder</strong> button.</div>"
-                );
-            } else {
-                // append all the data from the ajax json
-                $.each(data, function (index, item) {
-                    $("#reminder_list").append(
-                        "<li style='font-size:medium;' class='ui-li-divider ui-bar-b ui-first-child' role='heading' data-role='list-divider' data-theme='b'>Reminder For : <span id='reminder_on'><strong>" +
-                        item.date +
-                        "</span></strong></li><li class='ui-last-child'><a id='reminder_id' href='#' onclick='ShowReminderFullInfo(" +
-                        item.id +
-                        ")' class='py-1 ui-btn ui-btn-icon-right ui-icon-carat-r'><h1 style='font-size: larger;'>About : <span id='vehicle_brand'><strong>" +
-                        item.car_brand +
-                        "</strong></span></h1><p id='note' style='font-size: medium;'>" +
-                        item.reminder_note +
-                        "</p><p>By <span id='username'><strong>" +
-                        item.owner_name +
-                        "</strong><span></p></a></li>"
-                    );
-                });
-            }
-        },
-        error: function () {
-            alert(
-                "Cannot load Reminders from the server please signout and try again"
-            );
-        }
-        */
-    });
 }
 // show and hide loader on ajax calls
 $(document).on({
@@ -125,20 +89,62 @@ $(document).on({
     }
 });
 
-// ****************************FUNCTIONS****************************
 // jquery function on click
-
 $("#refresh_btn").click(function () {
     window.location.reload();
     alert("Reaload Completed");
 });
 
 $("#btn").click(function () {
-    showReminderAjax(username);
+    window.location.reload();
+
+    showReminder();
 });
 
 // on click reminder list, and get id of the reminder of which info need to show
 function ShowReminderFullInfo(id) {
-    window.sessionStorage.setItem("full_info_reminder_id", id); //Set item
-    window.location = "reminder_full_info.html";
+    console.debug("Showing info for: " + id);
+    // Set items for full info page
+    try {
+        fullReminderInfoDB(id);
+        // Wait for database
+        var tries = 0;
+        waitForDb();
+        function waitForDb() {
+            if (res != -1) {
+                if (res == 0) {
+                    res = -1;
+                    // Went well
+                    // Save info for next page
+                    window.sessionStorage.setItem("full_info_reminder_id", resultArr.reminder_id);
+                    window.sessionStorage.setItem("full_info_reminder_note", resultArr.reminder_note);
+                    window.sessionStorage.setItem("full_info_reminder_date", resultArr.reminder_date);
+                    window.sessionStorage.setItem("full_info_vehicle_id", resultArr.vehicle_id);
+                    window.sessionStorage.setItem("full_info_extra_field", resultArr.extra_field);
+                    // Change page
+                    window.location = "reminder_full_info.html";
+                }
+                else if (res == 2) {
+                    alert("Error connecting to database");
+                }
+                else {
+                    // Shouldnt reach here but an unforseen thing can happen
+                    alert("A strange error has occured");
+                }
+                res = -1;
+            }
+            else {
+                // Shouldnt timeout but could happen
+                if (tries < 10) {
+                    setTimeout(waitForDb, 200);
+                }
+                else {
+                    alert("Timed out");
+                }
+            }
+        }
+    }
+    catch (e) {
+        alert("Database error: " + e);
+    }
 }
