@@ -6,7 +6,7 @@ var username = localStorage.getItem("username");
 
 // Load page after 250secs to prevent bugs
 $(document).ready(function () {
-    setTimeout(showReminder, 250);
+    setTimeout(showReminder, 300);
 });
 
 // Function for showing reminder of the user in home page
@@ -42,8 +42,7 @@ function showReminder() {
                                 resultArr[i].reminder_date +
                                 "</span></strong></li><li class='ui-last-child'><a id='reminder_id' href='#' onclick='ShowReminderFullInfo(" +
                                 resultArr[i].reminder_id +
-                                ")' class='py-1 ui-btn ui-btn-icon-right ui-icon-carat-r'><h1 style='font-size: medium;'>About : <span id='vehicle_brand'><strong>" +
-                                resultArr[i].car_brand +
+                                ")' class='py-1 ui-btn ui-btn-icon-right ui-icon-carat-r'><h1 style='font-size: medium;'>Reminder : <span id='vehicle_brand'><strong>" +
                                 "</strong></span></h1><p id='note' style='font-size: medium;'>" +
                                 resultArr[i].reminder_note +
                                 "</p><p>By <span id='username'><strong>" +
@@ -52,7 +51,7 @@ function showReminder() {
                         }
                     }
                     else if (res == 1) {
-                        $("#reminder_list").append("<div class='alert alert-info alert-dismissible'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><h4 class='alert-heading'>Welcome to MotApp!</h4>Currently you do not have any Reminders, to add press below <strong>Add Reminder</strong> button.</div>");
+                        $("#reminder_list").append("<div class='alert alert-info alert-dismissible'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><h4 class='alert-heading'>Welcome to Vehicle Mate!</h4>Currently you do not have any Reminders, to add press below <strong>Add Reminder</strong> button.</div>");
                     }
                     else if (res == 2) {
                         alert("Error connecting to database");
@@ -95,11 +94,6 @@ $("#refresh_btn").click(function () {
     alert("Reaload Completed");
 });
 
-$("#btn").click(function () {
-    window.location.reload();
-
-    showReminder();
-});
 
 // on click reminder list, and get id of the reminder of which info need to show
 function ShowReminderFullInfo(id) {

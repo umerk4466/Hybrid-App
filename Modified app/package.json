@@ -44,7 +44,10 @@
       "cordova-plugin-vibration": {},
       "cordova-plugin-whitelist": {},
       "cordova-sqlite-storage": {}
-    }
+    },
+    "platforms": [
+      "android"
+    ]
   },
   "dependencies": {
     "cordova-android": "^8.1.0",

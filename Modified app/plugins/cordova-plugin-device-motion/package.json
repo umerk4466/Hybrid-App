@@ -1,8 +1,34 @@
 {
-  "name": "cordova-plugin-device-motion",
-  "version": "1.2.5",
-  "description": "Cordova Device Motion Plugin",
-  "types": "./types/index.d.ts",
+  "_from": "cordova-plugin-device-motion@~1.2.0",
+  "_id": "cordova-plugin-device-motion@1.2.5",
+  "_inBundle": false,
+  "_integrity": "sha1-e1jt2dVQ3wpvua76tVuW1UkLGlY=",
+  "_location": "/cordova-plugin-device-motion",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "cordova-plugin-device-motion@~1.2.0",
+    "name": "cordova-plugin-device-motion",
+    "escapedName": "cordova-plugin-device-motion",
+    "rawSpec": "~1.2.0",
+    "saveSpec": null,
+    "fetchSpec": "~1.2.0"
+  },
+  "_requiredBy": [
+    "#DEV:/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-device-motion/-/cordova-plugin-device-motion-1.2.5.tgz",
+  "_shasum": "7b58edd9d550df0a6fb9aefab55b96d5490b1a56",
+  "_spec": "cordova-plugin-device-motion@~1.2.0",
+  "_where": "C:\\Users\\bored\\tempfolder",
+  "author": {
+    "name": "Apache Software Foundation"
+  },
+  "bugs": {
+    "url": "https://github.com/apache/cordova-plugin-device-motion/issues"
+  },
+  "bundleDependencies": false,
   "cordova": {
     "id": "cordova-plugin-device-motion",
     "platforms": [
@@ -20,10 +46,19 @@
       "browser"
     ]
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/apache/cordova-plugin-device-motion"
+  "deprecated": false,
+  "description": "Cordova Device Motion Plugin",
+  "devDependencies": {
+    "jshint": "^2.6.0"
   },
+  "engines": {
+    "cordovaDependencies": {
+      "2.0.0": {
+        "cordova": ">100"
+      }
+    }
+  },
+  "homepage": "https://github.com/apache/cordova-plugin-device-motion#readme",
   "keywords": [
     "cordova",
     "device",
@@ -42,20 +77,16 @@
     "cordova-tizen",
     "cordova-browser"
   ],
-  "scripts": {
-    "test": "npm run jshint",
-    "jshint": "node node_modules/jshint/bin/jshint www && node node_modules/jshint/bin/jshint src && node node_modules/jshint/bin/jshint tests"
-  },
-  "author": "Apache Software Foundation",
   "license": "Apache-2.0",
-  "engines": {
-    "cordovaDependencies": {
-      "2.0.0": {
-        "cordova": ">100"
-      }
-    }
+  "name": "cordova-plugin-device-motion",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apache/cordova-plugin-device-motion.git"
   },
-  "devDependencies": {
-    "jshint": "^2.6.0"
-  }
+  "scripts": {
+    "jshint": "node node_modules/jshint/bin/jshint www && node node_modules/jshint/bin/jshint src && node node_modules/jshint/bin/jshint tests",
+    "test": "npm run jshint"
+  },
+  "types": "./types/index.d.ts",
+  "version": "1.2.5"
 }

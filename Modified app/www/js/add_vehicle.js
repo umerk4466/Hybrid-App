@@ -67,7 +67,7 @@ function addVehicle(
                     if (res != -1) {
                         if (res == 0) {
                             // Went well
-                            alert("Your Vehicle " + manufacturer + "[" + registration_number + "] Aded Successfully");
+                            alert("Your Vehicle " + manufacturer + "[" + registration_number + "] Added Successfully");
                             changeVehicleInputColor("default");
                             window.location = "my_vehicle.html";
                         }

@@ -6,7 +6,7 @@ var username = localStorage.getItem("username");
 
 // Load page after 250secs to prevent bugs
 $(document).ready(function () {
-    setTimeout(showVehicle, 250);
+    setTimeout(showVehicle, 300);
  });
 
 // Show users vehicles
@@ -114,13 +114,6 @@ $(document).on({
 $("#refresh_btn").click(function () {
     window.location.reload();
     alert("Reaload Completed");
-});
-
-$("#btn").click(function () {
-    window.location.reload();
-
-    // alert("yesd");
-    showVehicle();
 });
 
 // on click vehicles list, and get id of the vehicle of which info need to show

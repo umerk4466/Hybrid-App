@@ -1,0 +1,43 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-battery-status": {
+      "PACKAGE_NAME": "unigroup.mot_app"
+    },
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "unigroup.mot_app"
+    },
+    "cordova-plugin-console": {
+      "PACKAGE_NAME": "unigroup.mot_app"
+    },
+    "cordova-plugin-contacts": {
+      "PACKAGE_NAME": "unigroup.mot_app"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "unigroup.mot_app"
+    },
+    "cordova-plugin-device-motion": {
+      "PACKAGE_NAME": "unigroup.mot_app"
+    },
+    "cordova-plugin-device-orientation": {
+      "PACKAGE_NAME": "unigroup.mot_app"
+    },
+    "cordova-plugin-dialogs": {
+      "PACKAGE_NAME": "unigroup.mot_app"
+    },
+    "cordova-sqlite-storage": {
+      "PACKAGE_NAME": "unigroup.mot_app"
+    }
+  },
+  "dependent_plugins": {
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "unigroup.mot_app"
+    }
+  }
+}

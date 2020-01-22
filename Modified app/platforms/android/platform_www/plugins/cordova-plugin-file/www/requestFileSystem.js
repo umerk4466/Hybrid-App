@@ -19,11 +19,10 @@ cordova.define("cordova-plugin-file.requestFileSystem", function(require, export
  * under the License.
  *
 */
-
-(function () {
-    // For browser platform: not all browsers use this file.
-    function checkBrowser () {
-        if (cordova.platformId === 'browser' && require('./isChrome')()) { // eslint-disable-line no-undef
+(function() {
+    //For browser platform: not all browsers use this file.
+    function checkBrowser() {
+        if (cordova.platformId === "browser" && require('./isChrome')()) {
             module.exports = window.requestFileSystem || window.webkitRequestFileSystem;
             return true;
         }
@@ -33,10 +32,10 @@ cordova.define("cordova-plugin-file.requestFileSystem", function(require, export
         return;
     }
 
-    var argscheck = require('cordova/argscheck');
-    var FileError = require('./FileError');
-    var FileSystem = require('./FileSystem');
-    var exec = require('cordova/exec');
+    var argscheck = require('cordova/argscheck'),
+        FileError = require('./FileError'),
+        FileSystem = require('./FileSystem'),
+        exec = require('cordova/exec');
     var fileSystems = require('./fileSystems');
 
     /**
@@ -46,22 +45,20 @@ cordova.define("cordova-plugin-file.requestFileSystem", function(require, export
      * @param successCallback  invoked with a FileSystem object
      * @param errorCallback  invoked if error occurs retrieving file system
      */
-    var requestFileSystem = function (type, size, successCallback, errorCallback) {
+    var requestFileSystem = function(type, size, successCallback, errorCallback) {
         argscheck.checkArgs('nnFF', 'requestFileSystem', arguments);
-        var fail = function (code) {
-            if (errorCallback) {
-                errorCallback(new FileError(code));
-            }
+        var fail = function(code) {
+            errorCallback && errorCallback(new FileError(code));
         };
 
         if (type < 0) {
             fail(FileError.SYNTAX_ERR);
         } else {
             // if successful, return a FileSystem object
-            var success = function (file_system) {
+            var success = function(file_system) {
                 if (file_system) {
                     if (successCallback) {
-                        fileSystems.getFs(file_system.name, function (fs) {
+                        fileSystems.getFs(file_system.name, function(fs) {
                             // This should happen only on platforms that haven't implemented requestAllFileSystems (windows)
                             if (!fs) {
                                 fs = new FileSystem(file_system.name, file_system.root);
@@ -69,12 +66,13 @@ cordova.define("cordova-plugin-file.requestFileSystem", function(require, export
                             successCallback(fs);
                         });
                     }
-                } else {
+                }
+                else {
                     // no FileSystem object returned
                     fail(FileError.NOT_FOUND_ERR);
                 }
             };
-            exec(success, fail, 'File', 'requestFileSystem', [type, size]);
+            exec(success, fail, "File", "requestFileSystem", [type, size]);
         }
     };
 

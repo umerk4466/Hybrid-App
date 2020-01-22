@@ -350,6 +350,175 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "runs": true
     },
     {
+      "id": "cordova-plugin-file-transfer.FileTransferError",
+      "file": "plugins/cordova-plugin-file-transfer/www/FileTransferError.js",
+      "pluginId": "cordova-plugin-file-transfer",
+      "clobbers": [
+        "window.FileTransferError"
+      ]
+    },
+    {
+      "id": "cordova-plugin-file-transfer.FileTransfer",
+      "file": "plugins/cordova-plugin-file-transfer/www/FileTransfer.js",
+      "pluginId": "cordova-plugin-file-transfer",
+      "clobbers": [
+        "window.FileTransfer"
+      ]
+    },
+    {
+      "id": "cordova-plugin-geolocation.geolocation",
+      "file": "plugins/cordova-plugin-geolocation/www/android/geolocation.js",
+      "pluginId": "cordova-plugin-geolocation",
+      "clobbers": [
+        "navigator.geolocation"
+      ]
+    },
+    {
+      "id": "cordova-plugin-geolocation.PositionError",
+      "file": "plugins/cordova-plugin-geolocation/www/PositionError.js",
+      "pluginId": "cordova-plugin-geolocation",
+      "runs": true
+    },
+    {
+      "id": "cordova-plugin-globalization.GlobalizationError",
+      "file": "plugins/cordova-plugin-globalization/www/GlobalizationError.js",
+      "pluginId": "cordova-plugin-globalization",
+      "clobbers": [
+        "window.GlobalizationError"
+      ]
+    },
+    {
+      "id": "cordova-plugin-globalization.globalization",
+      "file": "plugins/cordova-plugin-globalization/www/globalization.js",
+      "pluginId": "cordova-plugin-globalization",
+      "clobbers": [
+        "navigator.globalization"
+      ]
+    },
+    {
+      "id": "cordova-plugin-inappbrowser.inappbrowser",
+      "file": "plugins/cordova-plugin-inappbrowser/www/inappbrowser.js",
+      "pluginId": "cordova-plugin-inappbrowser",
+      "clobbers": [
+        "cordova.InAppBrowser.open",
+        "window.open"
+      ]
+    },
+    {
+      "id": "cordova-plugin-media.MediaError",
+      "file": "plugins/cordova-plugin-media/www/MediaError.js",
+      "pluginId": "cordova-plugin-media",
+      "clobbers": [
+        "window.MediaError"
+      ]
+    },
+    {
+      "id": "cordova-plugin-media.Media",
+      "file": "plugins/cordova-plugin-media/www/Media.js",
+      "pluginId": "cordova-plugin-media",
+      "clobbers": [
+        "window.Media"
+      ]
+    },
+    {
+      "id": "cordova-plugin-media-capture.CaptureAudioOptions",
+      "file": "plugins/cordova-plugin-media-capture/www/CaptureAudioOptions.js",
+      "pluginId": "cordova-plugin-media-capture",
+      "clobbers": [
+        "CaptureAudioOptions"
+      ]
+    },
+    {
+      "id": "cordova-plugin-media-capture.CaptureImageOptions",
+      "file": "plugins/cordova-plugin-media-capture/www/CaptureImageOptions.js",
+      "pluginId": "cordova-plugin-media-capture",
+      "clobbers": [
+        "CaptureImageOptions"
+      ]
+    },
+    {
+      "id": "cordova-plugin-media-capture.CaptureVideoOptions",
+      "file": "plugins/cordova-plugin-media-capture/www/CaptureVideoOptions.js",
+      "pluginId": "cordova-plugin-media-capture",
+      "clobbers": [
+        "CaptureVideoOptions"
+      ]
+    },
+    {
+      "id": "cordova-plugin-media-capture.CaptureError",
+      "file": "plugins/cordova-plugin-media-capture/www/CaptureError.js",
+      "pluginId": "cordova-plugin-media-capture",
+      "clobbers": [
+        "CaptureError"
+      ]
+    },
+    {
+      "id": "cordova-plugin-media-capture.MediaFileData",
+      "file": "plugins/cordova-plugin-media-capture/www/MediaFileData.js",
+      "pluginId": "cordova-plugin-media-capture",
+      "clobbers": [
+        "MediaFileData"
+      ]
+    },
+    {
+      "id": "cordova-plugin-media-capture.MediaFile",
+      "file": "plugins/cordova-plugin-media-capture/www/MediaFile.js",
+      "pluginId": "cordova-plugin-media-capture",
+      "clobbers": [
+        "MediaFile"
+      ]
+    },
+    {
+      "id": "cordova-plugin-media-capture.capture",
+      "file": "plugins/cordova-plugin-media-capture/www/capture.js",
+      "pluginId": "cordova-plugin-media-capture",
+      "clobbers": [
+        "navigator.device.capture"
+      ]
+    },
+    {
+      "id": "cordova-plugin-network-information.network",
+      "file": "plugins/cordova-plugin-network-information/www/network.js",
+      "pluginId": "cordova-plugin-network-information",
+      "clobbers": [
+        "navigator.connection",
+        "navigator.network.connection"
+      ]
+    },
+    {
+      "id": "cordova-plugin-network-information.Connection",
+      "file": "plugins/cordova-plugin-network-information/www/Connection.js",
+      "pluginId": "cordova-plugin-network-information",
+      "clobbers": [
+        "Connection"
+      ]
+    },
+    {
+      "id": "cordova-plugin-splashscreen.SplashScreen",
+      "file": "plugins/cordova-plugin-splashscreen/www/splashscreen.js",
+      "pluginId": "cordova-plugin-splashscreen",
+      "clobbers": [
+        "navigator.splashscreen"
+      ]
+    },
+    {
+      "id": "cordova-plugin-statusbar.statusbar",
+      "file": "plugins/cordova-plugin-statusbar/www/statusbar.js",
+      "pluginId": "cordova-plugin-statusbar",
+      "clobbers": [
+        "window.StatusBar"
+      ]
+    },
+    {
+      "id": "cordova-plugin-vibration.notification",
+      "file": "plugins/cordova-plugin-vibration/www/vibration.js",
+      "pluginId": "cordova-plugin-vibration",
+      "merges": [
+        "navigator.notification",
+        "navigator"
+      ]
+    },
+    {
       "id": "cordova-sqlite-storage.SQLitePlugin",
       "file": "plugins/cordova-sqlite-storage/www/SQLitePlugin.js",
       "pluginId": "cordova-sqlite-storage",
@@ -367,7 +536,18 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-device-motion": "1.2.5",
     "cordova-plugin-device-orientation": "1.0.7",
     "cordova-plugin-dialogs": "1.2.1",
-    "cordova-plugin-file": "6.0.2",
+    "cordova-plugin-file": "4.1.1",
+    "cordova-plugin-file-transfer": "1.5.1",
+    "cordova-plugin-geolocation": "2.1.0",
+    "cordova-plugin-globalization": "1.0.9",
+    "cordova-plugin-inappbrowser": "1.3.0",
+    "cordova-plugin-media": "2.2.0",
+    "cordova-plugin-media-capture": "1.2.0",
+    "cordova-plugin-network-information": "1.2.1",
+    "cordova-plugin-splashscreen": "3.2.2",
+    "cordova-plugin-statusbar": "2.1.3",
+    "cordova-plugin-vibration": "2.1.6",
+    "cordova-plugin-whitelist": "1.2.2",
     "cordova-sqlite-storage": "4.0.0"
   };
 });

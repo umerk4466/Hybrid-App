@@ -38,7 +38,9 @@ function _disconnect() {
 	db = null;
 	//console.debug("Disconnected");
 }
-
+/*
+ * USER DATABASE
+*/
 function addUserDB(vehicleNum, username, password) {
 	if (!_connect()) {
 		res = 2;
@@ -47,14 +49,13 @@ function addUserDB(vehicleNum, username, password) {
 	//console.debug("ADDING USER");
 	db.transaction(function (tx) {
 		// Make sure table exists
-		tx.executeSql('CREATE TABLE IF NOT EXISTS customerAccounts (vehicleNum VARCHAR NOT NULL,username VARCHAR NOT NULL,password VARCHAR NOT NULL,PRIMARY KEY(username))');
+		tx.executeSql('CREATE TABLE IF NOT EXISTS customerAccounts (vehicle_num VARCHAR NOT NULL, username VARCHAR PRIMARY KEY NOT NULL, password VARCHAR NOT NULL, email VARCHAR DEFAULT "undefined", full_name VARCHAR DEFAULT "undefined", join_date datetime NOT NULL DEFAULT CURRENT_TIMESTAMP)');
 
 		// Try to add new user
-		tx.executeSql('INSERT INTO customerAccounts(vehicleNum, username, password) VALUES(?,?,?)', [vehicleNum, username, password],
+		tx.executeSql('INSERT INTO customerAccounts(vehicle_num, username, password) VALUES(?,?,?)', [vehicleNum, username, password],
 			function (tx, resultSet) {
 				// If goes well
 				res = 0;
-				// log that change has happened
 				//console.debug('resultSet.insertId: ' + resultSet.insertId);
 				//console.debug('resultSet.rowsAffected: ' + resultSet.rowsAffected);
 			}, function (tx, resultSet) {
@@ -65,7 +66,7 @@ function addUserDB(vehicleNum, username, password) {
 				}
 				// If different error
 				else {
-					_dbSqlError(tx, error);
+					_dbSqlError(tx, resultSet);
 				}
 			});
 	}, _dbError, _dbSucess);
@@ -97,21 +98,18 @@ function loginDB(username, password) {
 	}, _dbError, _dbSucess);
 }
 
-function getRemindersDB(username) {
+function getUserInfoDB(username) {
 	//console.debug("GETTING REMINDERS");
 	if (!_connect()) {
 		res = 2;
 		return;
 	}
 	db.transaction(function (tx) {
-		tx.executeSql('SELECT * FROM reminders WHERE username = (?)', [username],
+		tx.executeSql('SELECT * FROM customerAccounts WHERE username = (?)', [username],
 			function (tx, resultSet) {
 				//console.debug("Result set length is: " + resultSet.rows.length);
 				if (resultSet.rows.length > 0) {
-					for (var i = 0; i < resultSet.rows.length; i++) {
-						resultArr.push(resultSet.rows.item(i));
-						//console.debug("reminder info - " + JSON.stringify(resultSet.rows.item(i)));
-					}
+					resultArr = resultSet.rows.item(0);
 					res = 0;
 				}
 				else {
@@ -131,6 +129,39 @@ function getRemindersDB(username) {
 	}, _dbError, _dbSucess);
 }
 
+function modifyProfileDB(username, newPassword, newRegNo, newName, newEmail) {
+	//console.debug("ADDING VEHICLE");
+	if (!_connect()) {
+		res = 2;
+		return;
+	}
+	// Update variables
+	db.transaction(function (tx) {
+		// If new variable exists update database
+		if(newPassword) {
+			tx.executeSql('UPDATE customerAccounts SET password = (?) WHERE username = (?)', [newPassword, username],
+				_dbSqlOk, _dbSqlError);
+		}
+		if (newRegNo) {
+			tx.executeSql('UPDATE customerAccounts SET vehicle_num = (?) WHERE username = (?)', [newRegNo, username],
+				_dbSqlOk, _dbSqlError);
+		}
+		if (newName) {
+			tx.executeSql('UPDATE customerAccounts SET full_name = (?) WHERE username = (?)', [newName, username],
+				_dbSqlOk, _dbSqlError);
+		}
+		if (newEmail) {
+			tx.executeSql('UPDATE customerAccounts SET email = (?) WHERE username = (?)', [newEmail, username],
+				_dbSqlOk, _dbSqlError);
+		}
+		// Went okay
+		res = 0;
+	}, _dbError, _dbSucess);
+}
+
+/*
+ * VEHICLE DATABASE
+*/
 function addVehicleDB(username, manufacturer, millage, condition, registrationYear, registrationNumber, lastMotDate, motDue, insuranceDue, vehicleNotes, repairNeededNote, imgUrl) {
 	//console.debug("ADDING VEHICLE");
 	if (!_connect()) {
@@ -160,7 +191,6 @@ img_url VARCHAR)');
 			function (tx, resultSet) {
 				// If goes well
 				res = 0;
-				// log that change has happened
 				//console.debug('resultSet.insertId: ' + resultSet.insertId);
 				//console.debug('resultSet.rowsAffected: ' + resultSet.rowsAffected);
 			}, _dbSqlError);
@@ -243,6 +273,10 @@ function deleteVehicleDB(vehicleId) {
 	}, _dbError, _dbSucess);
 }
 
+/*
+ * REMINDERS DATABASE
+*/
+
 function addReminderDB(username, reminderNote, reminderDate, vehicleId, extraField) {
 	//console.debug("ADDING REMINDER");
 	if (!_connect()) {
@@ -265,7 +299,6 @@ extra_field VARCHAR NOT NULL)");
 			function (tx, resultSet) {
 				// If goes well
 				res = 0;
-				// log that change has happened
 				//console.debug('resultSet.insertId: ' + resultSet.insertId);
 				//console.debug('resultSet.rowsAffected: ' + resultSet.rowsAffected);
 			}, _dbSqlError);
@@ -348,6 +381,11 @@ function deleteReminderDB(reminderId) {
 			});
 	}, _dbError, _dbSucess);
 }
+
+/*
+ * HIDEN FUNCTIONS
+*/
+
 /*
 function _viewAllUsersDB() {
 	_connect();

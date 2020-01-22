@@ -60,14 +60,10 @@ function login(username, password) {
 
                         // move user to the home page
                         window.location = "home.html";
-
-                        changeLoginInputColor("default");
-                        $("#login-btn").prop("disabled", false);
                     }
                     else if (res == 1) {
                         alert("Username or password is incorrect");
                         changeLoginInputColor("red");
-                        $("#login-btn").prop("disabled", false);
                     }
                     else if (res == 2) {
                         alert("Error connecting to database");
@@ -76,6 +72,7 @@ function login(username, password) {
                         // Shouldnt reach here but an unforseen thing can happen
                         alert("A strange error has occured");
                     }
+                    $("#login-btn").prop("disabled", false);
                 }
                 else {
                     // Shouldnt timeout but could happen
@@ -134,6 +131,7 @@ function signup(reg_no, username, password) {
                         // Shouldnt reach here but an unforseen thing can happen
                         alert("A strange error has occured");
                     }
+                    $("#signup-btn").prop("disabled", false);
                 }
                 else {
                     // Shouldnt timeout but could happen
