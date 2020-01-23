@@ -22,8 +22,12 @@ var app = {
     while (!window.navigator.onLine) {
       alert("Check your Internet Connection");
     }
-
-    // https://stackoverflow.com/questions/19143763/phonegap-login-page-how-to-keep-user-information/19144078
+    // check if user have save data then go directly to the home page
+    var username = localStorage.getItem("username");
+    var password = localStorage.getItem("password");
+    if (username !== null || password !== null) {
+      window.location = "home.html";
+    }
     this.bindEvents();
   },
   // Bind Event Listeners

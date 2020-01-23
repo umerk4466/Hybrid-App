@@ -5,8 +5,8 @@ $("body").height(window.innerHeight);
 var username = localStorage.getItem("username");
 
 // on start of the page load all the ajax data only for once
-// $("#homePage").one("click", showReminderAjax(username));
-// // fucntion on load page, to load all data from the reminder api
+$("#homePage").one("click", showReminderAjax(username));
+// fucntion on load page, to load all data from the reminder api
 // $(document).ready(function() {
 //   showReminderAjax(username);
 // });
@@ -14,7 +14,6 @@ var username = localStorage.getItem("username");
 // ****************************AJAX****************************
 // ajax function for showing reminder of the user in home page
 function showReminderAjax(username) {
-  alert("home ajax");
   $.ajax({
     url:
       "https://motproject01.pythonanywhere.com/api/get/user/reminder/?username=" +

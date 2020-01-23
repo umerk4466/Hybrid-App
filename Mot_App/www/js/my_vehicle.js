@@ -5,12 +5,10 @@ $("body").height(window.innerHeight);
 var username = localStorage.getItem("username");
 
 // on start of the page load all the ajax data only for once
-// $("#my_vehicle_Page").one("click", showVehicleAjax(username));
-// showVehicleAjax(username);
+$("#my_vehicle_Page").one("click", showVehicleAjax(username));
 // ****************************AJAX****************************
 // ajax function for showing reminder of the user in home page
 function showVehicleAjax(username) {
-  alert("yess");
   $.ajax({
     url:
       "https://motproject01.pythonanywhere.com/api/get/user/vehicle/?username=" +
