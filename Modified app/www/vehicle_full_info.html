@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <!-- basic phonegap imports -->
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover" />
+    <link rel="stylesheet"
+          href="css/jquery.mobile-1.4.5.min.css" />
+    <script src="js/local/jquery-1.11.1.min.js"></script>
+    <script src="js/local/jquery.mobile-1.4.5.min.js"></script>
+
+    <!-- Add bootstrap -->
+    <link rel="stylesheet"
+          href="css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous" />
+    <!-- NOT SLIM -->
+    <script src="js/local/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"></script>
+    <script src="js/local/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="js/local/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <!-- ------------------------------------------------------ -->
+    <!-- vahicle_full_info_page(vahicle_full_info_page) start-->
+    <div data-role="page" id="vahicle_full_info_page" class="h-100">
+        <!-- add loader for ajax and ither calls -->
+        <div class="ui-loader"></div>
+        <!-- header start -->
+        <div data-role="header" data-theme="b">
+            <a href="#" data-rel="back" class="m-1" data-theme="b" data-icon="back">Back</a>
+            <h1 class="m-1">Full info</h1>
+        </div>
+        <!-- header end -->
+        <!-- page content start -->
+        <div data-role="main" class="ui-content p-0">
+            <div class="container">
+                <div class="row">
+                    <div class="col px-0">
+                        <div class="card p-1 font-weight-bold text-center">
+                            Your Vehicle Full Detail Listed Below
+                        </div>
+                    </div>
+                </div>
+
+                <!-- delete confirmation model -->
+                <div id="delete_vehicle_model" class="modal" tabindex="-1" role="dialog">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-body pb-0">
+                                <h5 style="color:red">Important Note :</h5>
+                                <p>After deleting this vehicle you will not be able to recover this vehicle's data.</p>
+                                <p><strong>Are you sure to Delete this Vehicle?</strong></p>
+                            </div>
+                            <div class="modal-footer p-2">
+                                <button id="confirm_del_vehicle" data-theme="b" class="bg-danger" data-mini="true" ">Yes Delete Now</button>
+                                <button data-theme="b" data-mini="true" data-dismiss="modal">No</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- delete confirmation model end -->
+
+                <div class="row h-100">
+                    <div id="full_vehicle_div" class="col px-0">
+                        <!-- full vehicle data start -->
+                        <!-- <div class="card">
+                          <img src="img/mycars/no_image.jpg" class="card-img-top">
+
+                          <ul data-role="listview" class="m-0 ui-listview">
+                            <li data-role="list-divider">Vehicle Details</li>
+                            <li>Manufacturer <span class="float-right"><strong>umer</strong></span></li>
+                            <li>Registration No <span class="float-right"><strong>registration_number</strong></span></li>
+                            <li>Registration Year <span class="float-right"><strong>registration_year</strong></span></li>
+                            <li>Millage <span class="float-right"><strong>millage</strong></span></li>
+                            <li>Condition <span class="float-right"><strong>condition</strong></span></li>
+                            <li style="white-space: normal;">Personal Note : <span><strong>vehicle_notes</strong></span></li>
+                            <li style="white-space: normal;">Repair Needed : <span><strong>repair_needed_note</strong></span></li>
+
+                            <li data-role="list-divider">Vehicle Inspection Info</li>
+                            <li>Last MOT Done On <span class="float-right"><strong>last_mot_date</strong></span></li>
+                            <li>MOT Due On <span class="float-right"><strong>mot_due</strong></span></li>
+                            <li>Insurance Due On <span class="float-right"><strong>insurance_due</strong></span></li>
+
+                            <li data-role="list-divider">Others</li>
+                            <li>Vehicle Added On <span class="float-right"><strong>added_on</strong></span></li>
+                            <li>Modified On <span class="float-right"><strong>last_edit_date</strong></span></li>
+                          </ul>
+
+                        </div> -->
+                        <!-- full vehicle data end -->
+
+                    </div>
+                </div>
+                <!-- page content end -->
+                <!-- footer start -->
+                <div data-position="fixed"
+                     data-role="footer" data-tap-toggle="false">
+                    <div data-role="navbar">
+                        <ul>
+                            <li><button href="#" data-toggle="modal" data-target="#delete_vehicle_model" data-theme="b" class="ui-icon-delete ui-btn-icon-bottom">Delete This Vehicle</button></li>
+                        </ul>
+                    </div><!-- /navbar -->
+                </div><!-- footer end -->
+
+
+            </div>
+        </div>
+    </div>
+    <!-- vahicle_full_info_page(vahicle_full_info_page) end-->
+    <!-- ------------------------------------------------------ -->
+    <!-- import custom js -->
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/vehicle_full_info.js"></script>
+</body>
+</html>

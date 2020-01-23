@@ -1,0 +1,16 @@
+
+JQuery mobile - easiest framework
+
+https://balsamiq.com/
+
+div - container
+
+DOM - document object model
+represents the structre of a web document as a tree of nodes
+
+<head> to do with settings
+
+ionic react
+
+https://ionicframework.com/docs/react/your-first-app
+

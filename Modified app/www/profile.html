@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <!-- basic phonegap imports -->
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover"
+    />
+    <link
+      rel="stylesheet"
+      href="css/jquery.mobile-1.4.5.min.css"
+    />
+    <script src="js/local/jquery-1.11.1.min.js"></script>
+    <script src="js/local/jquery.mobile-1.4.5.min.js"></script>
+
+    <!-- font awsome -->
+    <link 
+    href="css/font-awesome.css" 
+    rel="stylesheet"  type='text/css'>    
+    <!-- Add bootstrap -->
+    <link
+      rel="stylesheet"
+      href="css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    
+    <!-- NOT SLIM -->
+    <script
+      src="js/local/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="js/local/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="js/local/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+
+    ></script>
+
+  </head>
+
+  <body>
+    <!-- ------------------------------------------------------ -->
+
+    <!-- user_profile_page) start-->
+    <div data-role="page" id="profile_page" class="h-100">
+      <!-- add loader for ajax and ither calls -->
+      <div class="ui-loader"></div>
+      <!-- header start -->
+      <div data-role="header" data-theme="b">
+        <a href="#" data-rel="back" class="m-1" data-theme="b" data-icon="back">Back</a>
+        <h1 class="m-1">My Profile</h1>
+      </div>
+      <!-- header end -->
+
+      <!-- page content start -->
+      <div data-role="main" class="ui-content p-0">
+        <div class="container">
+
+          <!-- editable input model start -->
+          <div id="edit-model" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header py-2">
+                    <h5 class="modal-title">Edit Your Profile</h5>
+                </div>
+                <div class="modal-body bg-light border p-2">     
+                    <div class="ui-field-contain">               
+                        <label id="label" class="font-weight-bold"></label>
+                        <input id="new-password" type="text" placeholder="New Password..." active="no" class="mb-2" data-mini="true"></input>
+                        <input id="new-vehicle_reg" type="text" placeholder="New Registration No..." active="no" class="mb-2" data-mini="true"></input>
+                        <input id="new-fname" type="text" placeholder="New Full Name..." active="no" class="mb-2" data-mini="true"></input>
+                        <input id="new-email" type="email" active="no" placeholder="Type New Email..." class="mb-2" data-mini="true"></input>
+                      </div>
+                </div>
+                <div class="modal-footer p-2 bg-light border">
+                  <button id="change_btn" data-theme="b" class="bg-danger" data-mini="true">Change Now</button>
+                  <button data-theme="b" data-dismiss="modal" data-mini="true">Cancel</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- editable input model end -->
+          
+
+          <div class="row h-100">
+            <div id="full_user_div" class="col px-0">
+              <!-- full profile data start -->
+              <!-- <div class="card">                
+                <ul data-role="listview" class="m-0 ui-listview">
+                  <li data-role='list-divider' role='heading' class='ui-li-divider ui-bar-inherit ui-first-child'>Account Detail &nbsp;<i class="fa fa-home"></i></li>
+                  <li class='ui-li-static ui-body-inherit'><i class="fa fa-user"></i>&nbsp; Username <span class="float-right"><strong>username</strong></span></li>
+                  <li><a onclick="edit_Function('edit-password')" href="#" class="font-weight-light edit ui-btn ui-btn-icon-right ui-icon-carat-r"><i class="fa fa-lock"></i>&nbsp; Password  <span id="edit-password" class="font-weight-bold float-right">password</span></a></li>
+                  <li><a onclick="edit_Function('edit-reg_no')" href="#" class="font-weight-light edit ui-btn ui-btn-icon-right ui-icon-carat-r"><i class="fa fa-car"></i>&nbsp; Vehicle Reg No  <span id="edit-reg_no" class="font-weight-bold float-right">absj2 </span></a></li>
+
+                  <li data-role='list-divider' role='heading' class='ui-li-divider ui-bar-inherit ui-first-child'>Personal Info &nbsp;<i class="fa fa-info-circle"></i></li>
+                  <li><a onclick="edit_Function('edit-fname')" href="#" class="font-weight-light edit ui-btn ui-btn-icon-right ui-icon-carat-r"><i class="fa fa-text-width"></i>&nbsp; Full Name  <span id="edit-fname" class="font-weight-bold float-right">full_name</span></a></li>
+                  <li><a onclick="edit_Function('edit-email')" href="#" class="font-weight-light edit ui-btn ui-btn-icon-right ui-icon-carat-r"><i class="fa fa-tag"></i>&nbsp; Email  <span id="edit-email" class="font-weight-bold float-right">email</span></a></li>                  
+                  <li class='ui-li-static ui-body-inherit'><i class="fa fa-calendar"></i>&nbsp; joined Date <span class="float-right"><strong>join_date</strong></span></li>
+                </ul>
+              </div> -->
+              <!-- full profile data end -->
+              
+            </div>
+          </div>
+          <!-- page content end -->
+
+          <!-- footer start -->
+          <div
+          data-position="fixed"
+            data-role="footer" data-tap-toggle="false">
+          <div data-role="navbar">
+            <ul>
+              <li><button href="#" id="update_profile" data-theme="b" class="ui-icon-edit ui-btn-icon-bottom">Update Profile</button></li>
+            </ul>
+          </div><!-- /navbar -->
+        </div><!-- footer end -->
+
+
+          </div>
+        </div>
+      </div>
+    <!-- user_profile_page) end-->
+
+    <!-- ------------------------------------------------------ -->
+
+    <!-- import custom js -->
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/profile.js"></script>
+  </body>
+</html>

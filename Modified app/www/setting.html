@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <!-- basic phonegap imports -->
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover" />
+    <!--<meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+    <!-- Add jquery mobile -->
+    <link rel="stylesheet"
+          href="css/jquery.mobile-1.4.5.min.css" />
+    <script src="js/local/jquery-1.11.1.min.js"></script>
+    <script src="js/local/jquery.mobile-1.4.5.min.js"></script>
+
+    <!-- font awsome -->
+    <link href="css/font-awesome.css"
+          rel="stylesheet" type='text/css'>
+
+    <!-- Add bootstrap -->
+    <link rel="stylesheet"
+          href="css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous" />
+    <script src="js/local/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="js/local/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="js/local/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+
+
+    <!-- Add custom css -->
+    <!-- <link rel="stylesheet" type="text/css" href="css/setting.css" /> -->
+</head>
+
+<body>
+    <!-- ------------------------------------------------------ -->
+    <!-- setting(setting) start-->
+    <div data-role="page" id="setting" class="h-100">
+        <!-- add loader for ajax and ither calls -->
+        <div class="ui-loader"></div>
+        <!-- menu panel page1 start -->
+        <div data-role="panel"
+             id="setting_menu"
+             data-position="left"
+             data-display="overlay">
+            <!-- menu panel content goes here -->
+            <div class="ui-panel-inner">
+                <ul data-role="listview">
+                    <li data-role="list-divider"
+                        class="py-1 text-center"
+                        style="font-size: 20px;">
+                        Menu
+                    </li>
+                    <li>
+                        <a href="home.html"
+                           data-ajax="false"
+                           data-transition="slide"
+                           style="font-size: 20px;"><img src="img/menubar/home.png" class="ui-li-icon" />Home</a>
+                    </li>
+
+                    <li data-role="list-divider" class="py-0" style="font-size: 17px;">
+                        CAR
+                    </li>
+
+                    <li>
+                        <a href="my_vehicle.html"
+                           data-ajax="false"
+                           data-transition="slide"
+                           style="font-size: 20px;">
+                            <img src="img/menubar/my_car.png" class="ui-li-icon" />My
+                            Vehicle
+                        </a>
+                    </li>
+                    <li>
+                        <a href="add_vehicle.html"
+                           data-ajax="false"
+                           data-transition="slide"
+                           style="font-size: 20px;">
+                            <img src="img/menubar/add_car.png" class="ui-li-icon" />Add
+                            Vehicle
+                        </a>
+                    </li>
+
+                    <li data-role="list-divider" class="py-0" style="font-size: 17px;">
+                        REMINDER
+                    </li>
+
+                    <li>
+                        <a href="add_reminder.html"
+                           data-ajax="false"
+                           data-transition="slide"
+                           style="font-size: 20px;">
+                            <img src="img/menubar/add_reminder.png"
+                                 class="ui-li-icon" />Add Reminder
+                        </a>
+                    </li>
+
+                    <li data-role="list-divider" class="py-0" style="font-size: 17px;">
+                        OTHER
+                    </li>
+
+                    <li data-theme="b">
+                        <a href="#setting" style="font-size: 20px;">
+                            <img src="img/menubar/setting.png"
+                                 class="ui-li-icon" />Setting
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- /menu panel page1 -->
+        <!-- header start -->
+        <div data-role="navbar" data-iconpos="left">
+            <ul>
+                <li>
+                    <a href="#setting_menu"
+                       data-icon="bars"
+                       data-theme="b"
+                       style="font-size: 20px;">Setting</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /navbar -->
+        <!-- header end -->
+        <!-- page content start -->
+        <div data-role="main" class="ui-content p-0">
+
+            <ul data-role="listview" data-inset="true" class="m-0 ui-listview">
+                <!-- profile link -->
+                <li data-role='list-divider' role='heading' class='ui-li-divider ui-bar-inherit ui-first-child'>Profile &nbsp;<i class="fa fa-info-circle"></i></li>
+                <li><a onclick="changePageProfile()" href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r"><i class="fa fa-user"></i>&nbsp; My Profile</a></li>
+                <!-- reminder on/off checkbox -->
+                <li data-role='list-divider' role='heading' class='ui-li-divider ui-bar-inherit ui-first-child'>Reminder Setting &nbsp;<i class="fa fa-clock-o"></i></li>
+                <fieldset data-role="controlgroup" data-iconpos="right" class="m-0">
+                    <label for="checkbox_on_off" class="font-weght-bold"><i class="fa fa-bell-slash"></i>&nbsp; Reminder On/Off</label>
+                    <input type="checkbox" name="checkbox_on_off" id="checkbox_on_off" onchange="onChangeChecks()">
+                </fieldset>
+                <!-- time -->
+                <li style="background-color: #f6f6f6;" class='ui-li-static ui-body-inherit font-weight-bold'><i class="fa fa-clock-o"></i>&nbsp; All Reminder's Time  <br><input id="new-time" onchange="onChangeChecks()" type="time" class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset"></input></li>
+                <!-- signout -->
+                <li data-role='list-divider' role='heading' class='ui-li-divider ui-bar-inherit ui-first-child'>Other &nbsp;<i class="fa fa-info-circle"></i></li>
+                <li><a onclick="signOut()" href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r"><i class="fa fa-sign-out"></i>&nbsp; Sign Out</a></li>
+                <!-- location -->
+                <!--
+                <li data-role='list-divider' role='heading' class='ui-li-divider ui-bar-inherit ui-first-child'>Current Location &nbsp;<i class="fa fa-location-arrow"></i></li>
+                <div id="map" class="border" style="width:100%;height:40%;position:absolute;margin-bottom: 18%;"></div>
+                -->
+
+            </ul>
+
+        </div>
+        <!-- page content end -->
+        <!-- footer start -->
+        <div data-position="fixed" data-role="footer" data-tap-toggle="false">
+            <div data-role="navbar">
+                <ul>
+                    <li><button href="#" id="save_changes" data-theme="b" class="ui-icon-edit ui-btn-icon-bottom bg-primary">Save Changes</button></li>
+                </ul>
+            </div><!-- /navbar -->
+        </div><!-- footer end -->
+        <!-- setting(setting) end-->
+        <!-- ------------------------------------------------------ -->
+        <!-- import custom js -->
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/setting.js"></script>
+        <!-- map api scripts -->
+        <!--
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTP7Yrjrn_8qfW_-PTU1ckX1vh-DDYcOw"></script>
+            -->
+</body>
+</html>

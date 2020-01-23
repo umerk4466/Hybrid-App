@@ -1,0 +1,25 @@
+
+phonegap create foldername domainname(com.name.appname) appname
+
+phonegap platform add android
+
+
+phonegap build android --verbose
+phonegap emulate android
+phonegap run (for the above)
+
+--run phonegap project on web browser
+phonegap serve
+
+phonegap add plugin ...
+phonegap plugin search...
+
+logcat
+
+https://developer.android.com/studio/command-line/logcat.html
+
+adb logcat *:S CordovaLog:D
+adb logcat *:F CordovaLog:D
+
+adb logcat chromium:D SystemWebViewClient:D *:S
+

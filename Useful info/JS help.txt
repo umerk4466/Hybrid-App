@@ -1,0 +1,53 @@
+function (tx, resultSet) {
+	try {
+		for (resultSet; resultSet !== null; resultSet = Object.getPrototypeOf(resultSet)) {
+			result = result.concat(Object.getOwnPropertyNames(resultSet));
+		}
+			alert(result);
+	}
+	catch (e) {
+		alert(e);
+	}
+	/*
+	for (var x = 0; x < resultSet.rows.length; x++) {
+		console.log(resultSet.rows.item(x));
+	}
+	*/
+}
+
+for (var i = 0; i < resultSet.rows.length; i++) {
+	row = resultSet.rows.item(i);
+	console.log("row is " + JSON.stringify(row));
+}
+
+
+/*
+tx.executeSql('SELECT * FROM customerAccounts', [],
+	function (tx, resultSet) {
+		console.log(resultSet.rows.item(0).username);
+		for (var i = 0; i < resultSet.rows.length; i++) {
+			row = resultSet.rows.item(i);
+			console.log("row is " + JSON.stringify(row));
+		}
+
+	}, _dbSqlError);
+*/
+
+try {
+    // Load database script
+    $.getScript("js/database.js", function (data, textStatus, jqxhr) {
+    //console.log(data); // Data returned
+    //console.log(textStatus); // Success
+    //console.log(jqxhr.status); 
+    //console.log("Load was performed.");
+    }).done(function () {
+		_dbLoaded = true;
+    })
+}
+catch (e) {
+	alert("Could not load the data from database please try again");
+    _dbLoaded = false;
+}
+
+
+

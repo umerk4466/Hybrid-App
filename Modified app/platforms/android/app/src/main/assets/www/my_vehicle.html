@@ -1,0 +1,260 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <!-- basic phonegap imports -->
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover"
+    />
+    <!--<meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+    <!-- Add jquery mobile -->
+    <link
+      rel="stylesheet"
+      href="css/jquery.mobile-1.4.5.min.css"
+    />
+    <script src="js/local/jquery-1.11.1.min.js"></script>
+    <script src="js/local/jquery.mobile-1.4.5.min.js"></script>
+
+    <!-- Add bootstrap -->
+    <link
+      rel="stylesheet"
+      href="css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <!-- NOT SLIM -->
+    <script
+      src="js/local/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="js/local/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="js/local/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- get font awsome for the icons -->
+    <!-- <link
+      rel="stylesheet"
+      href="css/font-awesome.min.css"
+    /> -->
+
+    <!-- Add custom css -->
+    <!-- <link rel="stylesheet" type="text/css" href="css/home.css" /> -->
+  </head>
+
+  <body>
+    <!-- ------------------------------------------------------ -->
+    <!-- my_vehicle_Page(my_vehicle) start-->
+    <div data-role="page" id="my_vehicle_Page" class="h-100">
+      <!-- add loader for ajax and ither calls -->
+      <div class="ui-loader"></div>
+      <!-- add loader for ajax and ither calls -->
+      <div class="ui-loader"></div>
+      <!-- menu panel page2 start -->
+      <div
+        data-role="panel"
+        id="my_vehicle_menu"
+        data-position="left"
+        data-display="overlay"
+      >
+        <!-- menu panel content goes here -->
+        <div class="ui-panel-inner">
+          <ul data-role="listview">
+            <li
+              data-role="list-divider"
+              class="py-1 text-center"
+              style="font-size: 20px;"
+            >
+              Menu
+            </li>
+            <li>
+              <a
+                href="home.html"
+                data-ajax="false"
+                data-transition="slide"
+                style="font-size: 20px;"
+                ><img src="img/menubar/home.png" class="ui-li-icon" />Home</a
+              >
+            </li>
+
+            <li data-role="list-divider" class="py-0" style="font-size: 17px;">
+              CAR
+            </li>
+
+            <li data-theme="b">
+              <a
+                href="#my_vehicle_Page"
+                data-transition="slide"
+                style="font-size: 20px;"
+                ><img src="img/menubar/my_car.png" class="ui-li-icon" />My
+                Vehicle</a
+              >
+            </li>
+            <li>
+              <a
+                href="add_vehicle.html"
+                data-ajax="false"
+                data-transition="slide"
+                style="font-size: 20px;"
+                ><img src="img/menubar/add_car.png" class="ui-li-icon" />Add
+                Vehicle</a
+              >
+            </li>
+
+            <li data-role="list-divider" class="py-0" style="font-size: 17px;">
+              REMINDER
+            </li>
+
+            <li>
+              <a
+                href="add_reminder.html"
+                data-ajax="false"
+                data-transition="slide"
+                style="font-size: 20px;"
+                ><img
+                  src="img/menubar/add_reminder.png"
+                  class="ui-li-icon"
+                />Add Reminder</a
+              >
+            </li>
+
+            <li data-role="list-divider" class="py-0" style="font-size: 17px;">
+              OTHER
+            </li>
+
+            <li>
+              <a
+                href="setting.html"
+                data-ajax="false"
+                data-transition="slide"
+                style="font-size: 20px;"
+                ><img
+                  src="img/menubar/setting.png"
+                  class="ui-li-icon"
+                />Setting</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- /menu panel page2 -->
+
+      <!-- header start -->
+      <div data-role="navbar" data-iconpos="left">
+        <ul>
+          <li>
+            <a
+              href="#my_vehicle_menu"
+              data-icon="bars"
+              data-theme="b"
+              style="font-size: 20px;"
+              >My Vehicles</a
+            >
+          </li>
+        </ul>
+      </div>
+      <!-- /navbar -->
+      <!-- header end -->
+
+      <!-- page content start -->
+      <div data-role="main" class="ui-content p-0">
+        <div class="container">
+          <div class="row">
+            <div class="col px-0">
+              <div class="card p-2 font-weight-bold">
+                <div class="text-center">
+                  List of the cars I have saved
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- vehicle data row start -->
+          <div class="row">
+            <ul id="vehicle_ul_data" data-role="listview" data-inset="true">
+              <!-- <li data-role="list-divider" data-theme="b" class="p-2">
+                Registration No :
+                <span>JDJS83</span>
+                <span class="ui-li-count">Ford</span>
+              </li>
+              <li>
+                <a href="#" class="py-0">
+                  <div class="row p-0">
+                    <div class="col-4 my-auto p-0">
+                      <img
+                        src="img/mycars/car.jpg"
+                        alt="..."
+                        class="img-fluid rounded"
+                      />
+                    </div>
+
+                    <div class="col-8">
+                      <h2 class="font-weight-normal">
+                        Millages : <span>19292km</span>
+                      </h2>
+                      <h2 class="font-weight-normal">
+                        Reg Year : <span>2005</span>
+                      </h2>
+                      <h2 class="font-weight-normal">
+                        Mot Due : <span>2019-12-31</span>
+                      </h2>
+                    </div>
+                  </div>
+                </a>
+              </li> -->
+            </ul>
+          </div>
+          <!-- vehicle data row end -->
+        </div>
+      </div>
+      <!-- page content end -->
+
+      <!-- footer start -->
+      <div data-position="fixed" data-role="footer" data-tap-toggle="false">
+        <div data-role="navbar">
+          <ul>
+            <li>
+              <button
+                id="refresh_btn"
+                href="#"
+                data-theme="b"
+                class="ui-icon-refresh ui-btn-icon-bottom"
+              >
+                Refresh
+              </button>
+            </li>
+            <li>
+              <a
+                href="add_vehicle.html"
+                data-ajax="false"
+                data-theme="b"
+                class="ui-icon-plus ui-btn-icon-bottom"
+                >Add New Vehicle</a
+              >
+            </li>
+          </ul>
+        </div>
+        <!-- /navbar -->
+      </div>
+      <!-- footer end -->
+    </div>
+
+    <!-- login_seccess_Page2(my_vehicle) end-->
+
+    <!-- ------------------------------------------------------ -->
+
+    <!-- import custom js -->
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/my_vehicle.js"></script>
+  </body>
+</html>
